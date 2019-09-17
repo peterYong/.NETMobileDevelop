@@ -21,6 +21,7 @@ namespace Phoneword
 
             // Create your application here
             var phoneNumbers = Intent.Extras.GetStringArrayList("phone_numbers") ?? new string[0];
+            // 使用数据填充 ListView 专门处理使用内置 ListActivity 和 ArrayAdapter 类来创建并填充 ListView，而无需定义自定义布局
             this.ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, phoneNumbers);
         }
     }

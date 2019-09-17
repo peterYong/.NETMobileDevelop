@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Practice</string>
+    <string name="action_settings">Settings</string>
+
+  <string name="enter_info" >enter some text</string>
+  <string name="save_info">Save data</string>
+</resources>

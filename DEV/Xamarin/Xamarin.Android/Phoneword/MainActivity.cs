@@ -53,7 +53,9 @@ namespace Phoneword
 
             translationHistoryButton.Click += (sender, e) =>
             {
+                //创建一个Intent，传入当前上下文（this，用于引用当前上下文）以及你所查找的应用程序块的类型 (TranslationHistoryActivity)：
                 var intent = new Intent(this, typeof(TranslationHistoryActivity));
+                //PutStringArrayExtra 用于将电话号码列表附加到Intent，而 StartActivity 会对Intent的收件人进行调用
                 intent.PutStringArrayListExtra("phone_numbers", phoneNumbers);
                 StartActivity(intent);
             };
