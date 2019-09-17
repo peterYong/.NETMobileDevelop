@@ -10,6 +10,12 @@ namespace Phoneword
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        //Activity生命周期，通过重写其方法，可以控制活动的加载方式和与用户的互动方式，甚至还可以控制活动从设备屏幕消失后会发生的情况
+
+        /// <summary>
+        /// 创建视图、初始化变量，并执行在用户能看到活动之前其他必须完成的准备工作。 只有将活动加载到内存时，才会调用此方法一次。
+        /// </summary>
+        /// <param name="savedInstanceState"></param>
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -38,6 +44,8 @@ namespace Phoneword
             };
 
         }
+
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
