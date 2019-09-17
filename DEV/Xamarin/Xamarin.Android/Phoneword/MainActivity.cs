@@ -3,13 +3,16 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
-
+using System.Collections.Generic;
+using Android.Content;
 
 namespace Phoneword
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        static readonly List<string> phoneNumbers = new List<string>();
+
         //Activity生命周期，通过重写其方法，可以控制活动的加载方式和与用户的互动方式，甚至还可以控制活动从设备屏幕消失后会发生的情况
 
         /// <summary>
@@ -28,6 +31,8 @@ namespace Phoneword
             TextView translatedPhoneWord = FindViewById<TextView>(Resource.Id.TranslatedPhoneword);
             Button translateButton = FindViewById<Button>(Resource.Id.TranslateButton);
 
+            Button translationHistoryButton = FindViewById<Button>(Resource.Id.TranslationHistoryButton);
+
             // Add code to translate number
             translateButton.Click += (sender, e) =>
             {
@@ -40,8 +45,19 @@ namespace Phoneword
                 else
                 {
                     translatedPhoneWord.Text = translatedNumber;
+                    phoneNumbers.Add(translatedNumber);
+                    translationHistoryButton.Enabled = true;
                 }
             };
+
+
+            translationHistoryButton.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(TranslationHistoryActivity));
+                intent.PutStringArrayListExtra("phone_numbers", phoneNumbers);
+                StartActivity(intent);
+            };
+
 
         }
 
@@ -52,5 +68,9 @@ namespace Phoneword
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+
+
+
     }
 }
