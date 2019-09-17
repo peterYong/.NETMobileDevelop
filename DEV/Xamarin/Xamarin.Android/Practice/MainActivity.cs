@@ -3,6 +3,9 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
+using Android.Content.Res;
+using System.IO;
+using Android.Graphics;
 
 namespace Practice
 {
@@ -28,6 +31,45 @@ namespace Practice
                 button.AnnounceForAccessibility(button.Text);
             };
 
+            //读取asset
+            //TextView textView1 = new TextView(this);
+            string content;
+            AssetManager asset = this.Assets;
+            using (StreamReader sr = new StreamReader(asset.Open("read_asset.txt")))
+            {
+                content = sr.ReadToEnd();
+            }
+            //textView1.Text = content;
+            //SetContentView(textView1);  //整个界面就是textView1的内容了
+            TextView readAsset = FindViewById<TextView>(Resource.Id.readAsset);
+            readAsset.Text = content;
+
+
+            //Font
+            TextView textViewFont = FindViewById<TextView>(Resource.Id.textViewFont);
+            //Android.Graphics.Typeface typeface = this.Resources.GetFont(Resource.Font.SourceSansPro_bold); //GetFont方法已经不能使用
+            //textViewFont.Typeface = typeface;
+            //textViewFont.Text = "Changed the font";
+
+            var typeface = Typeface.Create("<FONT FAMILY NAME>", Android.Graphics.TypefaceStyle.Bold);
+            textViewFont.Typeface = typeface;
+
+            Button btnTransferFont = FindViewById<Button>(Resource.Id.btnTransferFont);
+            int times = 0;
+            btnTransferFont.Click += (sender, e) =>
+            {
+                times++;
+                if (times % 2 == 0)
+                {
+                    typeface = Typeface.Create("<FONT FAMILY NAME>", Android.Graphics.TypefaceStyle.Bold);
+                }
+                else
+                {
+                    typeface = Typeface.Create("<FONT FAMILY NAME>", Android.Graphics.TypefaceStyle.Italic);
+                }
+                textViewFont.Typeface = typeface;
+            };
+            
 
         }
 

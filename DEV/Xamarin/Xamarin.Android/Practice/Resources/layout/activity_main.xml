@@ -25,4 +25,31 @@
         android:layout_height="wrap_content"
         android:id="@+id/editFirstName"
         android:hint="@string/enter_info" />
+    <TextView
+        android:text="Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/readAsset"
+        android:layout_marginBottom="12.0dp" />
+
+    <TextView
+        android:text="测试字体："
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_marginBottom="12.0dp" />
+    <TextView
+        android:text="我是自定义的字体"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewFont"
+        android:fontFamily="@font/sourcesanspro"
+        android:textFontWeight="600"
+        android:textStyle="italic"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <Button
+        android:text="转换字体"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTransferFont" />
 </LinearLayout>
