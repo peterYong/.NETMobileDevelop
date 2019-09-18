@@ -52,7 +52,7 @@ namespace Practice
         private void TestEditView()
         {
             TextView textView = FindViewById<TextView>(Resource.Id.someText);
-            EditText editText = FindViewById<EditText>(Resource.Id.editFirstName);
+            //EditText editText = FindViewById<EditText>(Resource.Id.editFirstName);
             textView.LabelFor = Resource.Id.editFirstName;
         }
 
