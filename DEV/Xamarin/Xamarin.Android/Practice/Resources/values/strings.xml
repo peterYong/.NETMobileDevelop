@@ -4,4 +4,5 @@
 
   <string name="enter_info" >enter some text</string>
   <string name="save_info">Save data</string>
+  <string name="button_bundle_info">测试bundle实例状态：</string>
 </resources>
