@@ -63,6 +63,12 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimeSevice\IGetTimestamp.cs" />
+    <Compile Include="TimeSevice\TimestampBinder.cs" />
+    <Compile Include="TimeSevice\TimestampServiceConnection.cs" />
+    <Compile Include="TimeSevice\UtcTimestamper.cs" />
+    <Compile Include="TimestampActivity.cs" />
+    <Compile Include="TimestampService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -109,6 +115,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\font\sourcesanspro.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Timestamp.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -7,6 +7,7 @@ using Android.Content.Res;
 using System.IO;
 using Android.Graphics;
 using System;
+using Android.Content;
 
 namespace Practice
 {
@@ -26,7 +27,7 @@ namespace Practice
             TestAsset();
             TestFont();
             TestBundle(savedInstanceState);
-
+            TestService();
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -124,6 +125,23 @@ namespace Practice
                 button.Text = $"{info},clicked {++counter} times";
             };
         }
+
+        /// <summary>
+        /// 测试Android服务
+        /// </summary>
+        /// <param name="bundle"></param>
+        private void TestService()
+        {
+            Button testServiceButton = FindViewById<Button>(Resource.Id.testService);
+
+            testServiceButton.Click += (sender, e) =>
+            {
+                //创建一个Intent，传入当前上下文（this，用于引用当前上下文）以及你所查找的应用程序块的类型 (TimestampActivity)：
+                var intent = new Intent(this, typeof(TimestampActivity));
+                StartActivity(intent);
+            };
+        }
+
 
         #endregion
 

@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Practice</string>
     <string name="action_settings">Settings</string>
-
+   <!--主页的配置-->
   <string name="enter_info" >enter some text</string>
   <string name="save_info">Save data</string>
   <string name="button_bundle_info">测试bundle实例状态：</string>
+  <string name="time_service_button">测试Service</string>
+
+  <!--timestamp服务布局页的配置-->
+  <string name="get_timestamp_button_text">Get Timestamp from Service</string>
+  <string name="stop_timestamp_service_button_text">Unbind from Service</string>
+  <string name="restart_timestamp_service_button_text">Bind to Service</string>
+
+  <string name="service_not_connected">Please wait, the service is not connected.</string>
+  <string name="service_started">The service is started.</string>
+  <string name="app_description">This app is a demonstration of a bound service in Xamarin.Android. This example will bind to a service, which will return a timestamp telling how long the service has been running. </string>
+
 </resources>
