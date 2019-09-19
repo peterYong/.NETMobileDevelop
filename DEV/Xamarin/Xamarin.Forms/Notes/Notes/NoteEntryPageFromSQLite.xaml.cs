@@ -24,14 +24,14 @@ namespace Notes
             var note = (NoteData)BindingContext;
             note.Date = DateTime.UtcNow;
             await App.Database.UpdateNoteAsync(note);
-            await Navigation.PopAsync();
+            await Navigation.PopAsync(); //回到上一页
         }
 
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
             var note = (NoteData)BindingContext;
             await App.Database.DeleteNoteAsync(note);
-            await Navigation.PopAsync();
+            await Navigation.PopAsync(); //回到上一页
         }
 
         
