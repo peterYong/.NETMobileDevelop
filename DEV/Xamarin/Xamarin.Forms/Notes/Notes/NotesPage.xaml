@@ -7,7 +7,7 @@
         <ToolbarItem Text="+"
                      Clicked="OnNoteAddedClicked" />
     </ContentPage.ToolbarItems>
-    
+   
     <ListView x:Name="listView"
               Margin="20"
               ItemSelected="OnListViewItemSelected">
@@ -17,5 +17,8 @@
                           Detail="{Binding Date}" />
             </DataTemplate>
         </ListView.ItemTemplate>
+        
     </ListView>
+
 </ContentPage>
+

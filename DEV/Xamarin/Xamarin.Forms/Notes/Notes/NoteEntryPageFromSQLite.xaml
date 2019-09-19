@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Notes.NoteEntryPage"
-             Title="Note Entry From txt">
+             x:Class="Notes.NoteEntryPageFromSQLite"
+             Title="Notes Entry From SQLite">
     <StackLayout Margin="20">
         <Editor Placeholder="Enter your note"
                 Text="{Binding Text}"
