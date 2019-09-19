@@ -30,7 +30,5 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>Notes</string>
-	<key>MinimumOSVersion</key>
-	<string>12.2</string>
 </dict>
 </plist>
