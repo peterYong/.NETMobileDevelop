@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,11 +7,18 @@ namespace Notes
 {
     public partial class App : Application
     {
+        public static string FolderPath { get; private set; }
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //1、single page
+            //MainPage = new MainPage();
+
+            //2、multi pages
+            //存储数据的路径。。调试发现路径=/data/user/0/com.companyname.notes/files/.local/share  【在手机上打开files程序】
+            FolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            MainPage = new NavigationPage(new NotesPage());
         }
 
         protected override void OnStart()

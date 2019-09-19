@@ -22,17 +22,13 @@
 	</array>
 	<key>CFBundleDisplayName</key>
 	<string>AwesomeApp</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.huy.MyFirstApp</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
-	<string>AwesomeApp</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.huy.MyFirstApp</string>
-	<key>MinimumOSVersion</key>
-	<string>12.2</string>
+	<string>Notes</string>
 </dict>
 </plist>
