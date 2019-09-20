@@ -7,7 +7,9 @@ namespace FromPractice.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        About,
+        DataBinding,
+        UserInterface
     }
     public class HomeMenuItem
     {

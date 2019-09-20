@@ -21,12 +21,14 @@ namespace FromPractice.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                new HomeMenuItem{Id=MenuItemType.DataBinding,Title="DataBinding"},
+                new HomeMenuItem{Id=MenuItemType.UserInterface,Title="UserInterface"}
             };
 
             ListViewMenu.ItemsSource = menuItems;
 
-            ListViewMenu.SelectedItem = menuItems[0];
+            ListViewMenu.SelectedItem = menuItems[0];  //默认选择的是第一个Browse
             ListViewMenu.ItemSelected += async (sender, e) =>
             {
                 if (e.SelectedItem == null)

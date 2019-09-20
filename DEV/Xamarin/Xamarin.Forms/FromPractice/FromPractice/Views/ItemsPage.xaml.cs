@@ -24,7 +24,7 @@ namespace FromPractice.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new ItemsViewModel();  //初始化
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
