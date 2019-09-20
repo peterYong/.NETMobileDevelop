@@ -73,12 +73,22 @@ namespace Notes
 
         #region 数据保存到sqlite中
 
-     
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = await App.Database.GetNotesAsync();
+
+            if (BindingContext != null)
+            {
+                listView.ItemsSource = (List<NoteData>)BindingContext;
+            }
+            else
+            {
+                listView.ItemsSource = await App.Database.GetNotesAsync();
+            }
         }
+
+
         async void OnNoteAddedClicked(object sender, EventArgs e)
         {
             //导航到NoteEntryPage，并将NoteEntryPage的BindingContext设置为新Note实例
@@ -104,7 +114,34 @@ namespace Notes
                 });
             }
         }
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnQuery_Clicked(object sender, EventArgs e)
+        {
+            string text = text_Query.Text;
+            if (!string.IsNullOrEmpty(text))
+            {
+                //这种实现页面会刷新
+                //await Navigation.PushAsync(new NotesPage
+                //{
+                //    BindingContext = App.Database.GetNoteAsyncByString(text).Result
+                //}); 
+
+                listView.ItemsSource = App.Database.GetNoteAsyncByString(text).Result;
+            }
+            else
+            {
+                listView.ItemsSource = App.Database.GetNotesAsync().Result;
+            }
+        }
         #endregion
+
+
+
 
     }
 }

@@ -14,18 +14,29 @@
         <ToolbarItem Text="+"
                      Clicked="OnNoteAddedClicked" />
     </ContentPage.ToolbarItems>
-   
-    <ListView x:Name="listView"
+
+    <StackLayout>
+        <Editor x:Name="text_Query" 
+                Placeholder="请输入要查询的Text"/>
+
+        <Button Text="查询"
+                x:Name="BtnQuery"
+                WidthRequest="50"
+                Clicked="BtnQuery_Clicked"/>
+
+        <ListView x:Name="listView"
               Margin="{StaticResource PageMargin}"
               ItemSelected="OnListViewItemSelected">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Text}"
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Text}"
                           Detail="{Binding Date}" />
-            </DataTemplate>
-        </ListView.ItemTemplate>
-        
-    </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </StackLayout>
+
 
 </ContentPage>
 

@@ -22,11 +22,17 @@ namespace Notes.Data
         {
             return connection.Table<NoteData>().ToListAsync();
         }
-        public Task<NoteData> GetNoteAsync(int id)
+        public Task<NoteData> GetNoteAsyncById(int id)
         {
             return connection.Table<NoteData>()
                             .Where(i => i.ID == id)
                             .FirstOrDefaultAsync();
+        }
+        public Task<List<NoteData>> GetNoteAsyncByString(string text)
+        {
+            return connection.Table<NoteData>()
+                            .Where(i => i.Text.Contains(text))
+                            .ToListAsync();
         }
 
         public Task<int> UpdateNoteAsync(NoteData note)
