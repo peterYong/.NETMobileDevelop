@@ -18,12 +18,14 @@ namespace FromPractice.Views
         {
             InitializeComponent();
 
+            //模板页的菜单栏数据赋值
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem{Id=MenuItemType.DataBinding,Title="DataBinding"},
-                new HomeMenuItem{Id=MenuItemType.UserInterface,Title="UserInterface"}
+                new HomeMenuItem{Id=MenuItemType.ActivityIndicatorPage,Title="ActivityIndicatorPage"},
+                new HomeMenuItem{Id=MenuItemType.DisplayPopUps,Title="DisplayPopUps"}
             };
 
             ListViewMenu.ItemsSource = menuItems;

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:FromPractice.Views.UserInterface;assembly=FromPractice" 
+             mc:Ignorable="d"
+             x:Class="FromPractice.Views.UserInterface.DisplayPopUps">
+  <!--Pages can be added as references or inline-->
+    <!--<NavigationPage>
+        <x:Arguments>
+            <local:AlertPage  Title="Alerts" IconImageSource="csharp.png" />
+            <local:ActionSheetPage Title="ActionSheets" IconImageSource="csharp.png"/>
+        </x:Arguments>
+    </NavigationPage>-->
+
+    <NavigationPage Title="Alerts" IconImageSource="csharp.png" >
+        <x:Arguments>
+            <local:AlertPage  />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="ActionSheets" IconImageSource="csharp.png" >
+        <x:Arguments>
+            <local:ActionSheetPage />
+        </x:Arguments>
+    </NavigationPage>
+    
+</TabbedPage>

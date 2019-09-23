@@ -9,7 +9,8 @@ namespace FromPractice.Models
         Browse,
         About,
         DataBinding,
-        UserInterface
+        ActivityIndicatorPage,
+        DisplayPopUps
     }
     public class HomeMenuItem
     {
