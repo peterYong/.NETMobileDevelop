@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FromPractice.Views.DataBinding.BindingPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Button Text="BasicCodeBindingPage"  
+                    x:Name="Btn_BasicCodeBindingPage"
+                    Clicked="Btn_BasicCodeBindingPage_Clicked"/>
+
+            <Button Text="BasicXamlBindingPage" 
+                    x:Name="Btn_BasicXamlBindingPage"
+                    Clicked="Btn_BasicXamlBindingPage_Clicked"/>
+
+
+            <Button Text="AlternativeCodeBindingPage" 
+                    x:Name="Btn_AlternativeCodeBindingPage"
+                    Clicked="Btn_AlternativeCodeBindingPage_Clicked"/>
+
+            <Button Text="AlternativeXamlBindingPage"
+                    x:Name="Btn_AlternativeXamlBindingPage"
+                    Clicked="Btn_AlternativeXamlBindingPage_Clicked"/>
+
+            <Button Text="BindingContextInheritancePage"
+                    x:Name="Btn_BindingContextInheritancePage"
+                    Clicked="Btn_BindingContextInheritancePage_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

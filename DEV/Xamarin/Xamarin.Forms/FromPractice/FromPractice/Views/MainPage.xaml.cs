@@ -17,14 +17,14 @@ namespace FromPractice.Views
     public partial class MainPage : MasterDetailPage
     {
         //Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
-        Dictionary<int, Page> MenuPages = new Dictionary<int, Page>();
+        readonly Dictionary<int, Page> MenuPages = new Dictionary<int, Page>();
         public MainPage()
         {
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);  
+            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }
 
         /// <summary>
@@ -45,7 +45,8 @@ namespace FromPractice.Views
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.DataBinding:
-                        MenuPages.Add(id, new NavigationPage(new BasicCodeBindingPage()));
+                        //MenuPages.Add(id, new NavigationPage(new BasicCodeBindingPage())); 
+                        MenuPages.Add(id, new NavigationPage(new BindingPage()));  //跳一个 多个按钮的页面，单击按钮再进去二级页面
                         break;
                     case (int)MenuItemType.ActivityIndicatorPage:
                         MenuPages.Add(id, new NavigationPage(new ActivityIndicatorPage()));

@@ -4,15 +4,22 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FromPractice.Views.DataBinding.BasicCodeBindingPage">
-    <StackLayout Padding="10, 0">
-        <Label x:Name="label"
+             x:Class="FromPractice.Views.DataBinding.BasicXamlBindingPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="label"
                Text="TEXT"
                FontSize="80"
                HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" />
-        <Slider x:Name="slider"
+               VerticalOptions="CenterAndExpand" 
+               
+               BindingContext="{x:Reference Name=slider}"
+               Rotation="{Binding Path=Value}"/>
+            <!--Binding标记将 Label 的 Rotation 属性链接到 Slider 的 Value 属性-->
+
+            <Slider x:Name="slider"
                 Maximum="360"
                 VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

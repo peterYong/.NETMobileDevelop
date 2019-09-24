@@ -10,16 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace FromPractice.Views.DataBinding
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BasicCodeBindingPage : ContentPage
+    public partial class AlternativeCodeBindingPage : ContentPage
     {
-        public BasicCodeBindingPage()
+        public AlternativeCodeBindingPage()
         {
             InitializeComponent();
 
-            //1、在cs中实现绑定
-            label.BindingContext = slider;
-            label.SetBinding(Label.RotationProperty, "Value");
-
+            label.SetBinding(Label.ScaleProperty, new Binding("Value", source: slider));
         }
     }
 }
