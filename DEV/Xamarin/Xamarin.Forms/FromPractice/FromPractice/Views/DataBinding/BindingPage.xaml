@@ -39,6 +39,10 @@
             <Button Text="SampleSettingsPage"
                     x:Name="Btn_SampleSettingsPage"
                     Clicked="Btn_SampleSettingsPage_Clicked"/>
+
+            <Button Text="PathVariationsPage"
+                    x:Name="Btn_PathVariationsPage"
+                    Clicked="Btn_PathVariationsPage_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

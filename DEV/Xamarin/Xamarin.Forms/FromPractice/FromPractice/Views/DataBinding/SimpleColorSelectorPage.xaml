@@ -28,13 +28,19 @@
                  Grid.Row="0"/>
         
         <StackLayout Grid.Row="1"
-                     Margin="10,0">
+                     BackgroundColor="Gray">
             <!--显示颜色值String-->
             <Label Text="{Binding Name}"       
                    HorizontalTextAlignment="Center"/>
             <Slider Value="{Binding Hue}"/>  <!--绑定模式是TwoWay-->
+            <Label Text="{Binding Hue, StringFormat='Hue = {0:F2}'}" />
+            
             <Slider Value="{Binding Saturation}" />
+            <Label Text="{Binding Saturation, StringFormat='Saturation = {0:F2}'}" />
+
+
             <Slider Value="{Binding Luminosity}" />
+            <Label Text="{Binding Luminosity, StringFormat='Luminosity = {0:F2}'}" />
 
         </StackLayout>
     </Grid>

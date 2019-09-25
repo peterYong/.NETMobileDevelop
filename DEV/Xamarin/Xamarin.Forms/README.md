@@ -58,7 +58,9 @@ Slider绑定Label的Opacity属性，其默认值为1，初始会显示。
 
 我们将其改为TwoWay。
 
-9、
+9、PathVariationsPage
+
+绑定路径Path的一些设置，，设置为属性的属性/集合的元素
 
 #### 用户界面 ####
 
