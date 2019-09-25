@@ -63,5 +63,10 @@ namespace FromPractice.Views.DataBinding
         {
             await Navigation.PushAsync(new PathVariationsPage());
         }
+
+        private  async void Btn_PersonEntryPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PersonEntryPage());
+        }
     }
 }

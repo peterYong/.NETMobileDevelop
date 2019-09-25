@@ -62,6 +62,12 @@ Slider绑定Label的Opacity属性，其默认值为1，初始会显示。
 
 绑定路径Path的一些设置，，设置为属性的属性/集合的元素
 
+10、PersonEntryPage 人员录入
+
+采用，命令接口的方法来实现绑定
+
+
+
 #### 用户界面 ####
 
 1、ActivityIndicatorPage

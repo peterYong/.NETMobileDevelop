@@ -8,7 +8,7 @@ namespace FromPractice.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
-        List<Item> items;
+        readonly List<Item> items;
 
         public MockDataStore()
         {

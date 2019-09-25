@@ -43,6 +43,10 @@
             <Button Text="PathVariationsPage"
                     x:Name="Btn_PathVariationsPage"
                     Clicked="Btn_PathVariationsPage_Clicked"/>
+
+            <Button Text="PersonEntryPage"
+                    x:Name="Btn_PersonEntryPage"
+                    Clicked="Btn_PersonEntryPage_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

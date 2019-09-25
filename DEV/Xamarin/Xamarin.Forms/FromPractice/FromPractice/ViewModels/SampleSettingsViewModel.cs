@@ -78,7 +78,7 @@ namespace FromPractice.ViewModels
             dictionary["BackgroundNamedColor"] = BackgroundNamedColor.Name;
         }
 
-        T GetDictionaryEntry<T>(IDictionary<string, object> dictionary, string key, T defaultValue = default(T))
+        T GetDictionaryEntry<T>(IDictionary<string, object> dictionary, string key, T defaultValue = default)
         {
             return dictionary.ContainsKey(key) ? (T)dictionary[key] : defaultValue;
         }
