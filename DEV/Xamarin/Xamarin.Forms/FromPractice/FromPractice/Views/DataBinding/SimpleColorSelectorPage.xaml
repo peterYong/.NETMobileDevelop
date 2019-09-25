@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:FromPractice.ViewModels"
+             x:Class="FromPractice.Views.DataBinding.SimpleColorSelectorPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:HslColorViewModel x:Key="viewModel" 
+                                     Color="MediumTurquoise"/>
+            <Style TargetType="Slider">   <!--定义了页面所有的Silder的样式-->
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BindingContext="{StaticResource viewModel}">
+        <!--作为父类 绑定viewModel，供下面的控件继承-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--用于显示颜色-->
+        <BoxView Color="{Binding Color}"    
+                 Grid.Row="0"/>
+        
+        <StackLayout Grid.Row="1"
+                     Margin="10,0">
+            <!--显示颜色值String-->
+            <Label Text="{Binding Name}"       
+                   HorizontalTextAlignment="Center"/>
+            <Slider Value="{Binding Hue}"/>  <!--绑定模式是TwoWay-->
+            <Slider Value="{Binding Saturation}" />
+            <Slider Value="{Binding Luminosity}" />
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

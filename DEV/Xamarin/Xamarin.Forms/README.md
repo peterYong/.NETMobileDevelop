@@ -40,7 +40,23 @@ Binding的Source属性 绑定到x：Reference（源）
 
 绑定上下文继承，父布局中定义了源对象，子控件中都可以使用
 
+6、ReverseBindingPage
 
+反向的：现在，Label 是数据绑定源，而 Slider 是目标。【因为上面几个的Slider的Value默认值为0，初始不显示】
+
+Slider绑定Label的Opacity属性，其默认值为1，初始会显示。
+
+7、SimpleColorSelectorPage
+
+使用ViewModels来作为Source，绑定到目标（views）
+
+8、SampleSettingsViewModel
+
+替换掉默认的绑定模式的例子：
+
+一种非常有用的应用程序涉及 ListView 的 SelectedItem 属性。，其默认绑定模式为 OneWayToSource（目标到源）
+
+我们将其改为TwoWay。
 
 
 #### 用户界面 ####

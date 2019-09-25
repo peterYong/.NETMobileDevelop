@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FromPractice.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,12 @@ namespace FromPractice.Views.DataBinding
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BindingPage : ContentPage
-    {
+    {      
         public BindingPage()
         {
-            InitializeComponent();
+            InitializeComponent();         
         }
+
 
         private async void Btn_BasicCodeBindingPage_Clicked(object sender, EventArgs e)
         {
@@ -40,6 +42,21 @@ namespace FromPractice.Views.DataBinding
         private async void Btn_BindingContextInheritancePage_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new BindingContextInheritancePage());
+        }
+
+        private async void Btn_ReverseBindingPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ReverseBindingPage());
+        }
+
+        private async void Btn_SimpleColorSelectorPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SimpleColorSelectorPage());
+        }
+
+        private async void Btn_SampleSettingsPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SampleSettingsPage());
         }
     }
 }

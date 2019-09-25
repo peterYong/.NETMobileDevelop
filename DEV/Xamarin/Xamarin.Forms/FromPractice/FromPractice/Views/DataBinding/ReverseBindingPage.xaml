@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FromPractice.Views.DataBinding.ReverseBindingPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="label" 
+               Text="TEXT"
+               FontSize="80"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+
+            <Slider x:Name="slider"
+                VerticalOptions="CenterAndExpand"
+                Value="{Binding Source={x:Reference label},  
+                                Path=Opacity}" />
+            <!--Slider.Value是twoWay模式，双向绑定,,它的Value 是从Label的opacity处来，默认是1。 同时Label的opacity也是1，改变value时，Label的opacity也会改变-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

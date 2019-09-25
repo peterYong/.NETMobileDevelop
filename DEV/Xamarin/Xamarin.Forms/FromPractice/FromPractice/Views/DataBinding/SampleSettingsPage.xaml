@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:FromPractice.Models"
+             x:Class="FromPractice.Views.DataBinding.SampleSettingsPage"
+             Title="Sample Setting"
+             BindingContext="{Binding Source={x:Static Application.Current},Path=Settings}">
+
+    <!--Settings是app类中的属性，没有自动提示，下面这些也没-->
+    <StackLayout BackgroundColor="{Binding BackgroundColor}"
+                 Padding="10"
+                 Spacing="10">
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Name: "
+                   VerticalOptions="Center" />
+
+            <Entry Text="{Binding Name}"
+                   Placeholder="your name"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Birth Date: "
+                   VerticalOptions="Center" />
+
+            <DatePicker Date="{Binding BirthDate}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Do you code in C#? "
+                   VerticalOptions="Center" />
+
+            <Switch IsToggled="{Binding CodesInCSharp}"
+                    VerticalOptions="Center" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Number of Copies: "
+                   VerticalOptions="Center" />
+
+            <Stepper Value="{Binding NumberOfCopies}"
+                     VerticalOptions="Center" />
+
+            <Label Text="{Binding NumberOfCopies}"
+                   VerticalOptions="Center" />
+        </StackLayout>
+
+        <Label Text="Background Color:" />
+
+        <!--ListView 的 SelectedItem 属性属于类型 NamedColor，并被绑定到 SampleSettingsViewModel 的 BackgroundNamedColor 属性-->
+        <ListView x:Name="colorListView"
+                  ItemsSource="{x:Static local:NamedColor.All}"
+                  SelectedItem="{Binding BackgroundNamedColor, Mode=TwoWay}"
+                  VerticalOptions="FillAndExpand"
+                  RowHeight="40">
+            <!--对于 ListView 中的每个项，项的绑定上下文都被设置为 NamedColor 对象。 ViewCell 中的 BoxView 和 Label 被绑定到 NamedColor 中的属性-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <BoxView Color="{Binding Color}"
+                                     HeightRequest="32"
+                                     WidthRequest="32"
+                                     VerticalOptions="Center" />
+
+                            <Label Text="{Binding FriendlyName}"
+                                   FontSize="24"
+                                   VerticalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

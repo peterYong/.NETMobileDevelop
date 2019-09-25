@@ -28,6 +28,17 @@
             <Button Text="BindingContextInheritancePage"
                     x:Name="Btn_BindingContextInheritancePage"
                     Clicked="Btn_BindingContextInheritancePage_Clicked"/>
+
+            <Button Text="ReverseBindingPage"
+                    x:Name="Btn_ReverseBindingPage"
+                    Clicked="Btn_ReverseBindingPage_Clicked"/>
+
+            <Button Text="SimpleColorSelectorPage"
+                    x:Name="Btn_SimpleColorSelectorPage"
+                    Clicked="Btn_SimpleColorSelectorPage_Clicked"/>
+            <Button Text="SampleSettingsPage"
+                    x:Name="Btn_SampleSettingsPage"
+                    Clicked="Btn_SampleSettingsPage_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
