@@ -68,5 +68,10 @@ namespace FromPractice.Views.DataBinding
         {
             await Navigation.PushAsync(new PersonEntryPage());
         }
+
+        private async void Btn_CompiledColorSelectorPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CompiledColorSelectorPage());
+        }
     }
 }

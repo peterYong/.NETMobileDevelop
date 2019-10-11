@@ -47,6 +47,10 @@
             <Button Text="PersonEntryPage"
                     x:Name="Btn_PersonEntryPage"
                     Clicked="Btn_PersonEntryPage_Clicked"/>
+
+            <Button Text="CompiledColorSelectorPage"
+                    x:Name="Btn_CompiledColorSelectorPage"
+                    Clicked="Btn_CompiledColorSelectorPage_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

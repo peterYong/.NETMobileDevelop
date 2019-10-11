@@ -63,4 +63,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/testService" />
+
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+    android:text="Country"/>
+
+<AutoCompleteTextView
+    android:id="@+id/autocomplete_country"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:completionThreshold="1"
+    android:layout_marginLeft="5dp" />
 </LinearLayout>
