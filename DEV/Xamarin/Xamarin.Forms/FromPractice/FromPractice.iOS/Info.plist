@@ -21,9 +21,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleDisplayName</key>
-	<string>FromPractice</string>
+	<string>FormPractice</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.FromPractice</string>
+	<string>huy.com.FormPractice</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -32,5 +32,7 @@
 	<string>FromPractice</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>MinimumOSVersion</key>
+	<string>12.4</string>
 </dict>
 </plist>

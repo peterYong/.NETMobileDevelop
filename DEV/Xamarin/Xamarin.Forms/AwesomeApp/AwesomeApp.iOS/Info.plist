@@ -21,9 +21,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleDisplayName</key>
-	<string>AwesomeApp</string>
+	<string>FormPractice</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.huy.MyFirstApp</string>
+	<string>huy.com.FormPractice</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>

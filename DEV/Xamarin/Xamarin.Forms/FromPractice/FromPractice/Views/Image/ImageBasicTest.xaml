@@ -6,18 +6,12 @@
              mc:Ignorable="d"
              x:Class="FromPractice.Views.Image.ImageBasicTest">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms Image Test!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-
-            <Button Text="RemoteUriImage"  
+        <StackLayout >
+            <Button  
+                Text="RemoteUriImage"  
                     x:Name="Btn_RemoteUriImage"
                     Clicked="Btn_RemoteUriImage_Clicked"/>
 
-           
-
-            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

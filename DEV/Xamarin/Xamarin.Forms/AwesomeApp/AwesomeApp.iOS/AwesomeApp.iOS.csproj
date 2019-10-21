@@ -26,8 +26,9 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignKey>iPhone Developer: huyong19900511@163.com (M48NN4J549)</CodesignKey>
-    <CodesignProvision>iOS Team Provisioning Profile: com.huy.MyFirstApp</CodesignProvision>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignProvision>
+    </CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
     <CodesignEntitlements>
@@ -54,7 +55,7 @@
     <CodesignKey>iPhone Developer: huyong19900511@163.com (M48NN4J549)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Info.plist</CodesignEntitlements>
-    <CodesignProvision>iOS Team Provisioning Profile: com.huy.MyFirstApp</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: huy.com.FormPractice</CodesignProvision>
     <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
