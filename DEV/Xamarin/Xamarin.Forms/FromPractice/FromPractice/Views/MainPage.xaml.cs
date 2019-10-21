@@ -8,6 +8,7 @@ using Xamarin.Forms.Xaml;
 using FromPractice.Models;
 using FromPractice.Views.DataBinding;
 using FromPractice.Views.UserInterface;
+using FromPractice.Views.Image;
 
 namespace FromPractice.Views
 {
@@ -53,7 +54,10 @@ namespace FromPractice.Views
                         break;
                     case (int)MenuItemType.DisplayPopUps:
                         //MenuPages.Add(id, new NavigationPage(new DisplayPopUps()));  //用这种方式 会多出一个顶部的导航栏
-                        MenuPages.Add(id, new DisplayPopUps());  //选项卡页面
+                        MenuPages.Add(id, new NavigationPage(new DisplayPopUps()));  //选项卡页面
+                        break;
+                    case (int)MenuItemType.Image:
+                        MenuPages.Add(id, new NavigationPage(new ImageBasicTest()));  //选项卡页面
                         break;
 
                 }

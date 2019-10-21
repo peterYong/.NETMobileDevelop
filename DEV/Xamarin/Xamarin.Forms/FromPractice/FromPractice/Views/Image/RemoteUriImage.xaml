@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FromPractice.Views.Image.RemoteUriImage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="这是远程图片测试"/>
+            <Image >
+                <Image.Source>
+                    <UriImageSource Uri="https://img2018.cnblogs.com/blog/727485/201909/727485-20190916182430893-743796686.png"
+                                    CacheValidity="10:00:00"/>
+                </Image.Source>
+            </Image>
+            <Label Text="[Android]使用Image显示不出"/>
+            
+            <ffimageloading:CachedImage 
+                Grid.Row="0"
+                Source="https://img2018.cnblogs.com/blog/727485/201909/727485-20190916182430893-743796686.png"     
+                Aspect="AspectFill">
+                <ffimageloading:CachedImage.LoadingPlaceholder>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS, Android" Value="default_product" />
+                        <On Platform="UWP, WinRT, WinPhone" Value="Assets/default_product.png" />
+                    </OnPlatform>
+                </ffimageloading:CachedImage.LoadingPlaceholder>
+                <ffimageloading:CachedImage.ErrorPlaceholder>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <On Platform="iOS, Android" Value="noimage" />
+                        <On Platform="UWP, WinRT, WinPhone" Value="Assets/noimage.png" />
+                    </OnPlatform>
+                </ffimageloading:CachedImage.ErrorPlaceholder>
+            </ffimageloading:CachedImage>
+            <Label Text="使用FFImageLoading可以显示"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

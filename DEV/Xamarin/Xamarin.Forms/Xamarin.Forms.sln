@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromPractice.Android", "Fro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromPractice.iOS", "FromPractice\FromPractice.iOS\FromPractice.iOS.csproj", "{5845D78E-3992-4A5E-BCCE-1352E8A7CEE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FromPractice", "FromPractice\FromPractice\FromPractice.csproj", "{996877F0-9AF2-44EA-8F8E-24B2FC8B98B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FromPractice", "FromPractice\FromPractice\FromPractice.csproj", "{996877F0-9AF2-44EA-8F8E-24B2FC8B98B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
