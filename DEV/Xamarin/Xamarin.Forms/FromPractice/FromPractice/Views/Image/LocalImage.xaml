@@ -4,19 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FromPractice.Views.Image.ImageBasicTest">
+             x:Class="FromPractice.Views.Image.LocalImage">
     <ContentPage.Content>
-        <StackLayout >
-            <Button  
-                Text="RemoteUriImage"  
-                    x:Name="Btn_RemoteUriImage"
-                    Clicked="Btn_RemoteUriImage_Clicked"/>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
 
-            <Button  
-                Text="LocalImage"  
-                    x:Name="Btn_LocalImage"
-                    Clicked="Btn_LocalImage_Clicked"/>
-
+            <Image Source="waterfront.jpg"></Image>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

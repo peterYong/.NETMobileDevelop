@@ -4,19 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FromPractice.Views.Image.ImageBasicTest">
+             x:Class="FromPractice.Views.Layout.LayoutTest">
     <ContentPage.Content>
-        <StackLayout >
-            <Button  
-                Text="RemoteUriImage"  
-                    x:Name="Btn_RemoteUriImage"
-                    Clicked="Btn_RemoteUriImage_Clicked"/>
+        <StackLayout>
 
-            <Button  
-                Text="LocalImage"  
-                    x:Name="Btn_LocalImage"
-                    Clicked="Btn_LocalImage_Clicked"/>
+            <Button Text="AbsoluteLayoutTestPage"  
+                    x:Name="Btn_AbsoluteLayoutTestPage"
+                    Clicked="Btn_AbsoluteLayoutTestPage_Clicked"/>
 
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

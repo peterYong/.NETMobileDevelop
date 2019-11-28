@@ -19,8 +19,16 @@ namespace FromPractice.Views.Image
 
         private void Btn_RemoteUriImage_Clicked(object sender, EventArgs e)
         {
-           //Application.Current.MainPage= new NavigationPage(new RemoteUriImage());
+            //Application.Current.MainPage= new NavigationPage(new RemoteUriImage());
+
+            //Navigation.PushAsync(new RemoteUriImage());
             Navigation.PushAsync(new RemoteUriImage());
+
+        }
+
+        private void Btn_LocalImage_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LocalImage());
         }
     }
 }

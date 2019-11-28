@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AwesomeApp.MainPage">
+             x:Class="FromPractice.Views.Layout.AbsoluteLayoutTestPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label" x:Key="LabelDesc">
@@ -26,15 +26,11 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <!-- Place new controls here -->
-            <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
 
-            <Button Text="Click me" Clicked="Button_Clicked" ></Button>
             <Label Text="Test" Style="{StaticResource LabelDesc}"/>
         </StackLayout>
     </ContentPage.Content>
-   
-
 </ContentPage>

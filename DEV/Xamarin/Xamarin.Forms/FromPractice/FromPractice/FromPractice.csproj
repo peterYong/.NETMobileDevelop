@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Embeddinator-4000" Version="0.4.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
@@ -55,7 +57,19 @@
     <EmbeddedResource Update="Views\Image\ImageBasicTest.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Image\LocalImage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Image\RemoteUriImage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Layout\AbsoluteLayoutTestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Layout\LayoutTest.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Navigation\MainNavigationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UserInterface\ActionSheetPage.xaml">
@@ -77,8 +91,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="SkillPool.Common">
+      <HintPath>..\..\..\..\..\DLL\SkillPool.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SkillPool.Core">
+      <HintPath>..\..\..\..\..\DLL\SkillPool.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SkillPool.DataAccess">
+      <HintPath>..\..\..\..\..\DLL\SkillPool.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="SkillPool.Model">
+      <HintPath>..\..\..\..\..\DLL\SkillPool.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SkillPool.Server">
+      <HintPath>..\..\..\..\..\DLL\SkillPool.Server.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Views\Image\ImageBasicTest.xaml.cs">
       <DependentUpon>ImageBasicTest.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
+  <Import Project="Embeddinator-4000.targets" />
 </Project>

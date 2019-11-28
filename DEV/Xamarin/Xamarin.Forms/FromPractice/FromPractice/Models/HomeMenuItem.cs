@@ -11,7 +11,9 @@ namespace FromPractice.Models
         DataBinding,
         ActivityIndicatorPage,
         DisplayPopUps,
-        Image
+        Image,
+        Navigation,
+        Layout,
     }
     public class HomeMenuItem
     {
