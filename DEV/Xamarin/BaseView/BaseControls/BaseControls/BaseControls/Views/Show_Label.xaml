@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BaseControls.Views.Show_Label">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="显示文本" FontSize="24" FontAttributes="Bold,Italic" TextColor="Orange"></Label>
+            <Label Text="文本截断：测试超长文本截断效果测试超长文本截断效果测试超长文本截断效果测试超长文本截断效果" FontSize="24" FontAttributes="Bold,Italic" TextColor="Orange" LineBreakMode="MiddleTruncation"></Label>
+            <Label Text="文本截断：测试超长文本截断效果测试超长文本截断效果测试超长文本截断效果测试超长文本截断效果" FontSize="24" FontAttributes="Bold,Italic" TextColor="Orange" LineBreakMode="TailTruncation"></Label>
+            <Label Text="文本换行：测试超长文本截断效果测试超长文本截断效果测试超长文本截断效果测试超长文本截断效果" FontSize="24" FontAttributes="Bold,Italic" TextColor="Orange" LineBreakMode="WordWrap"></Label>
+            <Label Text="文本换行：测试超长文本截断效果测试超长文本截断效果测试超长文本截断效果测试超长文本截断效果" FontSize="24" FontAttributes="Bold,Italic" TextColor="Orange" LineBreakMode="WordWrap" MaxLines="2"></Label>
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="格式文本" TextColor="Black"></Span>
+                        <Span Text="重点内容" TextColor="Red"></Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design">
+
+    <!--颜色资源-->
+    <Color x:Key="NormalColor">#ff0000</Color>
+    <Color x:Key="PressedColor">#ffff00</Color>
+    <Color x:Key="SelectedColor">#00ffff</Color>
+    <Color x:Key="DisabledColor">#cccccc</Color>
+
+    <!--字符串资源-->
+    <x:String x:Key="AppName">应用名称</x:String>
+    <x:String x:Key="ConfirmText">确定</x:String>
+    <x:String x:Key="CancelText">取消</x:String>
+
+    <!--样式资源-->
+    <Style TargetType="Button">
+        <Setter Property="WidthRequest" Value="80"></Setter>
+        <Setter Property="HeightRequest" Value="35"></Setter>
+        <Setter Property="TextColor" Value="Red"></Setter>
+        <Setter Property="BackgroundColor" Value="Orange"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Red"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--模板资源-->
+    <DataTemplate x:Key="ListItemTemplate">
+        <ViewCell>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Text="{Binding Name}"></Label>
+                <Label Text="{Binding Location}" Grid.Row="1"></Label>
+            </Grid>
+        </ViewCell>
+    </DataTemplate>
+
+    <Style TargetType="Button" x:Key="NormalButton">
+        <Setter Property="WidthRequest" Value="80"></Setter>
+        <Setter Property="HeightRequest" Value="35"></Setter>
+        <Setter Property="TextColor" Value="Red"></Setter>
+        <Setter Property="BackgroundColor" Value="Orange"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Red"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

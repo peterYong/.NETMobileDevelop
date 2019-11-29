@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BaseControls.Views.Show_Editor"
+             BackgroundColor="Yellow">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="用户名"></Entry>
+            <Entry IsPassword="True" Placeholder="密码"></Entry>
+            <Editor AutoSize="TextChanges"></Editor>
+            <Button Text="按钮"></Button>
+            <ImageButton Source="flower.jpg" Aspect="AspectFit" HorizontalOptions="Center" HeightRequest="50" Clicked="ImageButton_Clicked"></ImageButton>
+            <SearchBar BackgroundColor="White" SearchButtonPressed="SearchBar_SearchButtonPressed"></SearchBar>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

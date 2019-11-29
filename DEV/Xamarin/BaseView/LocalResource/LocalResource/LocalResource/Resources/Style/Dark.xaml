@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LocalResource.Resources.Style.Dark">
+
+    <Color x:Key="NavBackgroundColor">#5D6B99</Color>
+    <Color x:Key="PageBackgroundColor">#40508D</Color>
+
+    <Color x:Key="MenuHeaderColor">#5D6B99</Color>
+    <Color x:Key="MenuConentColor">#40508D</Color>
+    
+    <Color x:Key="ButtonNormalColor">#FF5E5E</Color>
+    <Color x:Key="ButtonPressedColor">#88FF5E5E</Color>
+    <Color x:Key="ButtonDisabledColor">#efefef</Color>
+
+    <Color x:Key="TextNormalColor">#ffffff</Color>
+
+    <Color x:Key="TabBackgroundColor">#5D6B99</Color>
+    <Color x:Key="TabSelectedColor">#FF5E5E</Color>
+    <Color x:Key="TabNormalColor">#cccccc</Color>
+
+    <Color x:Key="LineColor">#ffffff</Color>
+
+   
+
+</ResourceDictionary>

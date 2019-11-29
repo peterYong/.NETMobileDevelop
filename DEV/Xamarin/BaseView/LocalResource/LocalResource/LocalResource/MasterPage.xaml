@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:LocalResource"
+             x:Class="LocalResource.MasterPage">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{DynamicResource MenuHeaderColor}">
+            <Label VerticalOptions="CenterAndExpand" Text="{DynamicResource MenuName}" TextColor="{DynamicResource TextNormalColor}"></Label>
+        </StackLayout>
+        <BoxView BackgroundColor="Gray" Grid.Row="1"></BoxView>
+        <ListView Grid.Row="2" x:Name="MasterListView" BackgroundColor="{DynamicResource MenuConentColor}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid HeightRequest="50" Padding="10,0,10,0" BackgroundColor="{DynamicResource MenuConentColor}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="24"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Icon}" Aspect="AspectFit" WidthRequest="24" HeightRequest="24"></Image>
+                            <Label IsVisible="False" Text="{Binding Title}" x:Name="lbl"></Label>
+                            <Label Text="{Binding Title}" VerticalOptions="Center" Grid.Column="1" TextColor="{DynamicResource TextNormalColor}"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

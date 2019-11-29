@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BaseControls.Views.List_TableView">
+    <ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot Title="标题">
+                <TableSection Title="文本">
+                    
+                    <TextCell Text="TextCell"></TextCell>
+                    <EntryCell Label="EntryCell"></EntryCell>
+                </TableSection>
+                <TableSection Title="图片">
+                    <ImageCell Text="ImageCell" ImageSource="flower.jpg" Detail="详细信息"></ImageCell>
+                    <SwitchCell Text="SwitchCell" OnColor="Blue"></SwitchCell>
+                </TableSection>
+                <TableSection Title="自定义">
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label>标题</Label>
+                            <Editor Grid.Column="1" AutoSize="TextChanges"></Editor>
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

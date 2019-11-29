@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BaseControls.Views.Page3">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Red"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label>布局</Label>
+                <FlexLayout Direction="Row" Wrap="Wrap">
+                    <Button Text="Stack1" Clicked="Button_Clicked" CommandParameter="Layout_Stack1"></Button>
+                    <Button Text="Stack2" Clicked="Button_Clicked" CommandParameter="Layout_Stack2"></Button>
+                    <Button Text="Grid" Clicked="Button_Clicked" CommandParameter="Layout_Grid"></Button>
+                    <Button Text="Absolute" Clicked="Button_Clicked" CommandParameter="Layout_Absolute"></Button>
+                    <Button Text="Flex" Clicked="Button_Clicked" CommandParameter="Layout_Flex"></Button>
+                </FlexLayout>
+                <Label>显示型控件</Label>
+                <FlexLayout Direction="Row" Wrap="Wrap">
+                    <Button Text="Label" Clicked="Button_Clicked" CommandParameter="Show_Label"></Button>
+                    <Button Text="Image" Clicked="Button_Clicked" CommandParameter="Show_Image"></Button>
+                    <Button Text="BoxView" Clicked="Button_Clicked" CommandParameter="Show_BoxView"></Button>
+                    <Button Text="WebView" Clicked="Button_Clicked" CommandParameter="Show_WebView"></Button>
+                </FlexLayout>
+                <Label>编辑型控件</Label>
+                <FlexLayout Direction="Row" Wrap="Wrap">
+                    <Button Text="Editor" Clicked="Button_Clicked" CommandParameter="Show_Editor"></Button>
+                </FlexLayout>
+                <Label>集合型控件</Label>
+                <FlexLayout Direction="Row" Wrap="Wrap">
+                    <Button Text="Picker" Clicked="Button_Clicked" CommandParameter="List_Picker"></Button>
+                    <Button Text="TableView" Clicked="Button_Clicked" CommandParameter="List_TableView"></Button>
+                    <Button Text="ListView" Clicked="Button_Clicked" CommandParameter="List_ListView"></Button>
+                    <Button Text="ListView_Group" Clicked="Button_Clicked" CommandParameter="List_ListView_Group"></Button>
+                </FlexLayout>
+                <Label>设置型控件</Label>
+                <FlexLayout Direction="Row" Wrap="Wrap">
+                    <Button Text="Setting" Clicked="Button_Clicked" CommandParameter="Page_Setting"></Button>
+                </FlexLayout>
+                <Label>状态型控件</Label>
+                <FlexLayout Direction="Row" Wrap="Wrap">
+                    <Button Text="Progress" Clicked="Button_Clicked" CommandParameter="Status_Progress"></Button>
+                </FlexLayout>
+                <Label>触发器</Label>
+                <FlexLayout Direction="Row" Wrap="Wrap">
+                    <Button Text="Property" Clicked="Button_Clicked" CommandParameter="Trigger_Property"></Button>
+                </FlexLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

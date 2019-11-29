@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LocalResource.Resources.Language.zh">
+
+    <x:String x:Key="AppName">程序名称</x:String>
+    <x:String x:Key="MenuName">菜单名称</x:String>
+    <x:String x:Key="InBox">收件箱</x:String>
+    <x:String x:Key="OutBox">发件箱</x:String>
+    <x:String x:Key="Drafts">草稿箱</x:String>
+    <x:String x:Key="Email">邮件</x:String>
+    <x:String x:Key="Contacts">通讯录</x:String>
+    <x:String x:Key="Me">我的</x:String>
+
+    <x:String x:Key="Button">按钮</x:String>
+    <x:String x:Key="Language">语言</x:String>
+    <x:String x:Key="Theme">主题</x:String>
+</ResourceDictionary>

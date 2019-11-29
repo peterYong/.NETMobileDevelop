@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LocalResource.Resources.Language.en">
+    <x:String x:Key="AppName">AppName</x:String>
+    <x:String x:Key="MenuName">MenuName</x:String>
+    <x:String x:Key="InBox">InBox</x:String>
+    <x:String x:Key="OutBox">OutBox</x:String>
+    <x:String x:Key="Drafts">Drafts</x:String>
+    <x:String x:Key="Email">Email</x:String>
+    <x:String x:Key="Contacts">Contacts</x:String>
+    <x:String x:Key="Me">Me</x:String>
+
+    <x:String x:Key="Button">Button</x:String>
+    <x:String x:Key="Language">Language</x:String>
+    <x:String x:Key="Theme">Theme</x:String>
+
+</ResourceDictionary>
