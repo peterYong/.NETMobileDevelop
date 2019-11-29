@@ -12,6 +12,11 @@
                     x:Name="Btn_RemoteUriImage"
                     Clicked="Btn_RemoteUriImage_Clicked"/>
 
+            <Button  
+                Text="LocalImage"  
+                    x:Name="Btn_LocalImage"
+                    Clicked="Btn_LocalImage_Clicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

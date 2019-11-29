@@ -26,7 +26,9 @@ namespace FromPractice.Views
                 new HomeMenuItem{Id=MenuItemType.DataBinding,Title="DataBinding"},
                 new HomeMenuItem{Id=MenuItemType.ActivityIndicatorPage,Title="ActivityIndicatorPage"},
                 new HomeMenuItem{Id=MenuItemType.DisplayPopUps,Title="DisplayPopUps"},
-                 new HomeMenuItem{Id=MenuItemType.Image,Title="ImageTest"}
+                 new HomeMenuItem{Id=MenuItemType.Image,Title="ImageTest"},
+                 new HomeMenuItem{Id=MenuItemType.Navigation,Title="NavigationTest"},
+                  new HomeMenuItem{Id=MenuItemType.Layout,Title="LayoutTest"}
             };
 
             ListViewMenu.ItemsSource = menuItems;

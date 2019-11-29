@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:BaseControls.Views"
+             x:Class="BaseControls.Views.List_ListView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="更改数据" Command="{Binding ChangedCommand}"></Button>
+            <ListView x:Name="lvFlowers" HasUnevenRows="True" ItemsSource="{Binding Flowers}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefleshCommand}" ItemTemplate="{StaticResource ListItemTemplate}">
+                <!--<ListView.ItemTemplate>
+                    
+                    <DataTemplate >
+                        --><!--<views:FlowerCell Item="{Binding .}"></views:FlowerCell>--><!--
+                    </DataTemplate>
+                </ListView.ItemTemplate>-->
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BaseControls.Views.Layout_Stack1">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" BackgroundColor="Red">
+                <Label Text="水平"></Label>
+                <Label Text="水平"></Label>
+                <Label Text="水平"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" BackgroundColor="Green" IsVisible="False">
+                <Label Text="垂直"></Label>
+                <Label Text="垂直"></Label>
+                <Label Text="垂直"></Label>
+            </StackLayout>
+            <StackLayout BackgroundColor="Blue">
+                <Label Text="默认"></Label>
+                <Label Text="默认"></Label>
+                <Label Text="默认"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

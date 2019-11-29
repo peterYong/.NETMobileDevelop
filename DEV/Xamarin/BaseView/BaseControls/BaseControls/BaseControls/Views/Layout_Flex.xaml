@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BaseControls.Views.Layout_Flex">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="数量"></Label>
+                    <StackLayout Grid.Column="1" Orientation="Horizontal">
+                        <Label x:Name="lblCount" Text="0"></Label>
+                        <Stepper x:Name="stepper" Minimum="0" Maximum="30" ValueChanged="stepper_ValueChanged"></Stepper>
+                    </StackLayout>
+                    <Label Text="Direction" Grid.Row="1" Grid.Column="0"></Label>
+                    <Picker x:Name="pkDirection" Grid.Row="1" Grid.Column="1" SelectedIndexChanged="pkDirection_SelectedIndexChanged">
+                        <Picker.Items>
+                            <x:String>Row</x:String>
+                            <x:String>RowReverse</x:String>
+                            <x:String>Column</x:String>
+                            <x:String>ColumnReverse</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="Wrap" Grid.Row="2" Grid.Column="0"></Label>
+                    <Picker x:Name="pkWrap" Grid.Row="2" Grid.Column="1" SelectedIndexChanged="pkWrap_SelectedIndexChanged">
+                        <Picker.Items>
+                            <x:String>Wrap</x:String>
+                            <x:String>NoWrap</x:String>
+                            <x:String>Reverse</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="JustifyContent" Grid.Row="3" Grid.Column="0"></Label>
+                    <Picker x:Name="pkJustifyContent" Grid.Row="3" Grid.Column="1" SelectedIndexChanged="pkJustifyContent_SelectedIndexChanged">
+                        <Picker.Items>
+                            <x:String>Start</x:String>
+                            <x:String>Center</x:String>
+                            <x:String>End</x:String>
+                            <x:String>SpaceBetween</x:String>
+                            <x:String>SpaceAround</x:String>
+                            <x:String>SpaceEvenly</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="AlignContent" Grid.Row="4" Grid.Column="0"></Label>
+                    <Picker x:Name="pkAlignContent" Grid.Row="4" Grid.Column="1" SelectedIndexChanged="pkAlignContent_SelectedIndexChanged">
+                        <Picker.Items>
+                            <x:String>Stretch</x:String>
+                            <x:String>Start</x:String>
+                            <x:String>Center</x:String>
+                            <x:String>End</x:String>
+                            <x:String>SpaceBetween</x:String>
+                            <x:String>SpaceAround</x:String>
+                            <x:String>SpaceEvenly</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="AlignItems" Grid.Row="5" Grid.Column="0"></Label>
+                    <Picker x:Name="pkAlignItems" Grid.Row="5" Grid.Column="1" SelectedIndexChanged="pkAlignItems_SelectedIndexChanged">
+                        <Picker.Items>
+                            <x:String>Stretch</x:String>
+                            <x:String>Center</x:String>
+                            <x:String>Start</x:String>
+                            <x:String>End</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid>
+                <FlexLayout x:Name="flLayout" Wrap="Wrap" AlignItems="Start" JustifyContent="Center" VerticalOptions="FillAndExpand">
+                </FlexLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

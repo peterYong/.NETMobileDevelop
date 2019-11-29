@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BaseControls.Views.Layout_Stack2">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="BackgroundColor" Value="Yellow"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="Start_1" HorizontalOptions="Start"></Label>
+                <Label Text="Center_1" HorizontalOptions="Center"></Label>
+                <Label Text="End_1" HorizontalOptions="End"></Label>
+                <Label Text="Fill_1" HorizontalOptions="Fill"></Label>
+            </StackLayout>
+            <!--水平方向设置HorizontalOptions为Start,Center,End,Fill无效-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Start_2" HorizontalOptions="Start"></Label>
+                <Label Text="Center_2" HorizontalOptions="Center"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Start_3" HorizontalOptions="Start"></Label>
+                <Label Text="Center_3" HorizontalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Start_4" HorizontalOptions="StartAndExpand"></Label>
+                <Label Text="Center_4" HorizontalOptions="StartAndExpand"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Start_5" HorizontalOptions="StartAndExpand"></Label>
+                <Label Text="Center_5" HorizontalOptions="EndAndExpand"></Label>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label Text="Center_6" VerticalOptions="CenterAndExpand"></Label>
+                <Label Text="Center_7" VerticalOptions="EndAndExpand"></Label>
+            </StackLayout>
+
+            <!--在垂直方向的StackLayout上，将子视图上的Horizo​​ntalOptions属性设置为StartAndExpand与将属性设置为Start具有相同的效果。-->
+            <StackLayout Orientation="Vertical">
+                <Label Text="Start_8" HorizontalOptions="StartAndExpand"></Label>
+                <Label Text="Center_8" HorizontalOptions="StartAndExpand"></Label>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

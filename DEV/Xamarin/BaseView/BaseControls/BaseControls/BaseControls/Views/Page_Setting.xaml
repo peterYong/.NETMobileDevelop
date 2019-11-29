@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BaseControls.Views.Page_Setting">
+    <ContentPage.Content>
+        <StackLayout>
+            <Slider Minimum="0" Maximum="20" x:Name="slider" Value="2" MinimumTrackColor="Red" MaximumTrackColor="Orange" ThumbColor="Green"></Slider>
+            <Label Text="{Binding Path=Value,Source={x:Reference slider},StringFormat='Value = {0:F2}'}"></Label>
+            <Slider Minimum="0" Maximum="5000" x:Name="slider2" MinimumTrackColor="Red" MaximumTrackColor="Orange" ThumbColor="Green"></Slider>
+            <Label Text="{Binding Path=Value,Source={x:Reference slider2},StringFormat='Value = {0:F2}'}"></Label>
+            <Stepper x:Name="stepper" Maximum="20" Minimum="0" Increment="2" Value="4"></Stepper>
+            <Label Text="{Binding Path=Value,Source={x:Reference stepper}}"></Label>
+            <Switch IsToggled="True" OnColor="Red" ThumbColor="Orange"></Switch>
+            <CheckBox IsChecked="True" Color="Red"></CheckBox>
+            <DatePicker x:Name="date" Format="yyyy-MM-dd"></DatePicker>
+            <TimePicker x:Name="time" Format="t"></TimePicker>
+            <TimePicker x:Name="time1" Format="T"></TimePicker>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

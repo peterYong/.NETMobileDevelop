@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:BaseControls"
+             xmlns:converter="clr-namespace:BaseControls.Converters"
+             x:Class="BaseControls.Views.Trigger_Property">
+    <ContentPage.Resources>
+        <converter:TextLengthConverter x:Key="TextLengthConverter"></converter:TextLengthConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry>
+                <Entry.Triggers>
+                    <Trigger Property="IsFocused" Value="True" TargetType="Entry">
+                        <Setter Property="BackgroundColor" Value="Red"></Setter>
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+
+            <Entry x:Name="entry" Text="" Placeholder="password" IsPassword="True">
+                <Entry.Triggers>
+                    <DataTrigger TargetType="Entry" Binding="{Binding Path=IsPressed,Source={x:Reference btn}}" Value="True">
+                        <Setter Property="IsPassword" Value="False"></Setter>
+                    </DataTrigger>
+                </Entry.Triggers>
+            </Entry>
+            <Button Text="按钮1" x:Name="btn"></Button>
+
+            <Button Text="按钮2">
+                <Button.Triggers>
+                    <EventTrigger Event="Clicked">
+                        <local:ButtonEventTriggerAction></local:ButtonEventTriggerAction>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <Entry x:Name="username" Placeholder="username"></Entry>
+            <Entry x:Name="password" Placeholder="password" IsPassword="True"></Entry>
+            <Button Text="按钮3" x:Name="btn2" IsEnabled="False">
+                <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Path=Text,Source={x:Reference username},Converter={StaticResource TextLengthConverter}}" Value="true"></BindingCondition>
+                            <BindingCondition Binding="{Binding Path=Text,Source={x:Reference password},Converter={StaticResource TextLengthConverter}}" Value="true"></BindingCondition>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Setter Property="BackgroundColor" Value="#0096ff"></Setter>
+                    </MultiTrigger>
+                </Button.Triggers>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

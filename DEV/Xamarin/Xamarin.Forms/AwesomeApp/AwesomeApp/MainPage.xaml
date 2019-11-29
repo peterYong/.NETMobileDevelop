@@ -5,14 +5,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AwesomeApp.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LabelDesc">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="#3ab776"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="FontSize">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="iOS" Value="30" />
+                            <On Platform="Android, UWP, WinRT, WinPhone" Value="100" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="BackgroundColor" Value="{OnPlatform Android='Red',Default='Yellow'}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Place new controls here -->
+            <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
 
-        <Button Text="Click me" Clicked="Button_Clicked" ></Button>
-    </StackLayout>
+            <Button Text="Click me" Clicked="Button_Clicked" ></Button>
+            <Label Text="Test" Style="{StaticResource LabelDesc}"/>
+        </StackLayout>
+    </ContentPage.Content>
+   
 
 </ContentPage>

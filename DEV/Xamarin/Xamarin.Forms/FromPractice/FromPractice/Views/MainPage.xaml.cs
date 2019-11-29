@@ -9,6 +9,8 @@ using FromPractice.Models;
 using FromPractice.Views.DataBinding;
 using FromPractice.Views.UserInterface;
 using FromPractice.Views.Image;
+using FromPractice.Views.Navigation;
+using FromPractice.Views.Layout;
 
 namespace FromPractice.Views
 {
@@ -59,6 +61,13 @@ namespace FromPractice.Views
                     case (int)MenuItemType.Image:
                         MenuPages.Add(id, new NavigationPage(new ImageBasicTest()));  //选项卡页面
                         break;
+                    case (int)MenuItemType.Navigation:
+                        MenuPages.Add(id, new NavigationPage(new MainNavigationPage(new AboutPage())));
+                        break;
+                    case (int)MenuItemType.Layout:
+                        MenuPages.Add(id, new NavigationPage(new LayoutTest()));
+                        break;
+
 
                 }
             }
