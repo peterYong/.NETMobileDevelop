@@ -7,6 +7,6 @@
              x:Class="BaseControls.App">
     <Application.Resources>
 
-        <!--<ResourceDictionary Source="Styles/Style.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="Styles/Style.xaml"></ResourceDictionary>
     </Application.Resources>
 </Application>
