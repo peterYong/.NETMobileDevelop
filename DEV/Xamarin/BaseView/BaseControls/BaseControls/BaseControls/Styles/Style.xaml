@@ -30,7 +30,7 @@
 
     <!--模板资源-->
     <DataTemplate x:Key="ListItemTemplate">
-        <ViewCell>
+        <!--<ViewCell>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"></RowDefinition>
@@ -39,7 +39,8 @@
                 <Label Text="{Binding Name}"></Label>
                 <Label Text="{Binding Location}" Grid.Row="1"></Label>
             </Grid>
-        </ViewCell>
+        </ViewCell>-->
+        <TextCell Text="{Binding Name}"></TextCell>
     </DataTemplate>
 
     <Style TargetType="Button" x:Key="NormalButton">

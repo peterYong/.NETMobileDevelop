@@ -9,7 +9,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Button Text="更改数据" Command="{Binding ChangedCommand}"></Button>
-            <ListView x:Name="lvFlowers" HasUnevenRows="True" ItemsSource="{Binding Flowers}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefleshCommand}" ItemTemplate="{StaticResource ListItemTemplate}">
+            <ListView x:Name="lvFlowers" HasUnevenRows="True" ItemsSource="{Binding Flowers}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefleshCommand}" 
+                      ItemTemplate="{StaticResource ListItemTemplate}">
                 <!--<ListView.ItemTemplate>
                     
                     <DataTemplate >
