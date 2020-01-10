@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MutiAutoActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeSevice\IGetTimestamp.cs" />
@@ -123,6 +124,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\HelloAutoComplete.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\MultiAutoCompleteTextView.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

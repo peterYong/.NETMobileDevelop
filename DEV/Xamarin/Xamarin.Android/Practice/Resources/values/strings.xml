@@ -6,6 +6,7 @@
   <string name="save_info">Save data</string>
   <string name="button_bundle_info">测试bundle实例状态：</string>
   <string name="time_service_button">测试Service</string>
+  <string name="mutiAuto_button">测试MultiAutoCompleteTextView</string>
 
   <!--timestamp服务布局页的配置-->
   <string name="get_timestamp_button_text">Get Timestamp from Service</string>

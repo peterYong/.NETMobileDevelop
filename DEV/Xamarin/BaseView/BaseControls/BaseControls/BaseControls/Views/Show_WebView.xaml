@@ -7,5 +7,6 @@
              x:Class="BaseControls.Views.Show_WebView">
     <ContentPage.Content>
         <WebView Source="http://www.baidu.com"></WebView>
+        
     </ContentPage.Content>
 </ContentPage>
