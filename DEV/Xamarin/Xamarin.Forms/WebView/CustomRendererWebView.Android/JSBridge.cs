@@ -24,6 +24,10 @@ namespace CustomRendererWebView.Droid
             hybridWebViewRenderer = new WeakReference<HybridWebViewRenderer>(hybridRenderer);
         }
 
+        /// <summary>
+        /// 供js调用的函数
+        /// </summary>
+        /// <param name="data">js中传递过来的参数</param>
         [JavascriptInterface]
         [Export("invokeAction")]
         public void InvokeAction(string data)
