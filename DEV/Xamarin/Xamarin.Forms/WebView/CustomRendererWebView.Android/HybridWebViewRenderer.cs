@@ -33,7 +33,7 @@ namespace CustomRendererWebView.Droid
             _context = context;
         }
 
-        const string JavascriptFunction = "function invokeCSharpAction(data){jsBridge.invokeAction(data);}";
+        const string JavascriptFunction = "function invokeCSharpAction(data){jsBridge.invokeAction(data);}"; //从js调用c#类jsBridge中的暴露的方法invokeAction
 
         protected override void OnElementChanged(ElementChangedEventArgs<WebView> e)
         {
@@ -48,7 +48,6 @@ namespace CustomRendererWebView.Droid
             {
                 //将Uri属性中指定的网页加载到本机 WebView 控件中，并在网页加载完成后 
                 //使用 JavascriptWebViewClient 类中 OnPageFinished 的替代方法将  JavaScript函数 invokeCSharpAction 注入到网页中：
-
                 Control.SetWebViewClient(new JavascriptWebViewClient($"javascript: {JavascriptFunction}"));
 
                 //将新的 JSBridge 实例注入到 WebView 的 JavaScript 上下文的主框架中，并将其命名为 jsBridge。 这允许从 JavaScript 访问 JSBridge 类中的方法。

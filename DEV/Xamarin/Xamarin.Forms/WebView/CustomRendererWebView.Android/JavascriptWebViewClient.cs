@@ -26,7 +26,7 @@ namespace CustomRendererWebView.Droid
         {
             base.OnPageFinished(view, url);
 
-            //页面加载完成后会将 _javascript (JavaScript函数invokeCSharpAction) 注入到网页中。
+            //页面加载完成后会将_javascript(JavaScript函数invokeCSharpAction(xx)) 注入到网页中。
             view.EvaluateJavascript(_javascript, null);
         }
     }
