@@ -153,8 +153,8 @@
     <Folder Include="SkillPool\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\SkillPool.Core\SkillPool.Core.csproj">
-      <Project>{2d738769-651c-4a33-989f-7db854b4dba6}</Project>
+    <ProjectReference Include="..\SkillPool.Core\SkillPool.Core.csproj">
+      <Project>{fb36c417-f708-481c-8146-a76e17340405}</Project>
       <Name>SkillPool.Core</Name>
     </ProjectReference>
   </ItemGroup>

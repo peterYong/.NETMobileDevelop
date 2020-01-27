@@ -89,12 +89,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\SkillPool.Core\SkillPool.Core.csproj">
-      <Project>{2d738769-651c-4a33-989f-7db854b4dba6}</Project>
-      <Name>SkillPool.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\app_settings.png" />
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +240,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\menu_profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SkillPool.Core\SkillPool.Core.csproj">
+      <Project>{fb36c417-f708-481c-8146-a76e17340405}</Project>
+      <Name>SkillPool.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
