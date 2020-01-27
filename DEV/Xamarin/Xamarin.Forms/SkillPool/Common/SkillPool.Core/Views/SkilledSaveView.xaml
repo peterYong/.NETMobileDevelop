@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkillPool.Core.Views.SkilledSaveView"
+             xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="True"   
+             >
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="保存"
+                     Command="{Binding SkillSaveCommand}"
+                     />
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15">
+                <Label Text="名称" />
+                <Entry Text="{Binding SkilledItem.Name}"/>
+
+                <Label Text="类别" />
+                <Entry Text="{Binding SkilledItem.Type}" Margin="0" />
+
+                <Label Text="时间" />
+                <Entry Text="{Binding SkilledItem.CreateTime}"/>
+
+                
+                <Label Text="描述"/>
+                <Editor Text="{Binding SkilledItem.Description}" HeightRequest="100"/>
+
+                <Label Text="备注"/>
+                <Editor Text="{Binding SkilledItem.Remark}" HeightRequest="100"/>
+
+                <Button
+                    Text="添加"
+                    IsVisible="{Binding IsAdd}"
+                    Clicked="ButtonAdd_Clicked"
+                    >
+                    <!--Command="{Binding SkillSaveCommand}"-->
+                </Button>
+                <Button
+                    Text="修改"
+                    IsVisible="{Binding IsAdd,Converter={StaticResource InverseBoolConverter} }"
+                    Clicked="ButtonUpdate_Clicked"
+                    >
+                    <!--Command="{Binding SkillSaveCommand}"-->
+                </Button>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

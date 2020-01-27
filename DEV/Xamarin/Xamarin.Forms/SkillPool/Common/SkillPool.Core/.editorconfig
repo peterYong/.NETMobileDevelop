@@ -1,0 +1,19 @@
+﻿[*.cs]
+
+# CA1051: 不要声明可见实例字段
+dotnet_diagnostic.CA1051.severity = none
+
+# CA1810: 以内联方式初始化引用类型的静态字段
+dotnet_diagnostic.CA1810.severity = none
+
+# CA1030: 在适用处使用事件
+dotnet_diagnostic.CA1030.severity = none
+
+# CA1303: 请不要将文本作为本地化参数传递
+dotnet_diagnostic.CA1303.severity = none
+
+# IDE0044: 添加只读修饰符
+dotnet_style_readonly_field = true:none
+
+# CA2211: 非常量字段应当不可见
+dotnet_diagnostic.CA2211.severity = none

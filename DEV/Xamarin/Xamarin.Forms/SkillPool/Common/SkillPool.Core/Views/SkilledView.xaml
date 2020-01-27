@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkillPool.Core.Views.SkilledView"
+             
+             xmlns:behaviors="clr-namespace:SkillPool.Core.Behaviors"
+             xmlns:templates ="clr-namespace:SkillPool.Core.Views.templates"
+             xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="True"  
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="ProductsListStyle" 
+               TargetType="{x:Type ListView}">
+                <Setter Property="RowHeight"
+                        Value="400" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="0" />
+            </Style>
+
+            <Style x:Key="FilterLabelStyle" 
+               TargetType="{x:Type Label}">
+                <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+            </Style>
+
+
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <!--MenuItem的Command是单击-->
+        <ToolbarItem Text="搜索"
+                     Command="{Binding SkillQueryCommand}">
+        </ToolbarItem>
+        <ToolbarItem Text="新增"
+                     Command="{Binding SkillAddCommand}">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                    ItemsSource="{Binding SkilledItems}"
+                    IsVisible="{Binding SkilledItems.Count}"
+                    HasUnevenRows="True"
+                    SeparatorVisibility="None"
+                    CachingStrategy="RecycleElement"
+                    IsPullToRefreshEnabled="True"
+                    >
+                <ListView.Behaviors>
+                    <!--ListView有ItemTapped事件，但是需在code-behind中处理。为了在viewmodel中处理，采用通过行为，将事件转为命令来处理-->
+                    <behaviors:EventToCommandBehavior           
+                            EventName="ItemTapped"
+                            Command="{Binding SkillDetailCommand}"
+                            EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnDeleteSkilledClicked" Text="删除" IsDestructive="True" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                            <templates:SkillTemplate />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+               
+            </ListView>
+
+            <Grid 
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
+                <Label 
+                        Text="NO Skilleds"      
+                        IsVisible="{Binding SkilledItems.Count, Converter={StaticResource InverseCountToBoolConverter}}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

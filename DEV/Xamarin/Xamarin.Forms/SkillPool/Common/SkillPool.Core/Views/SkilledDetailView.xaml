@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkillPool.Core.Views.SkilledDetailView"
+             Title="详情"
+             xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="True"   
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="修改" 
+                     Command="{Binding UpdateSkillCommand}"
+                    />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+               
+                <Label Text="名称" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="{Binding SkilledItem.Name}" Grid.Row="0" Grid.Column="1"/>
+                
+                <Label Text="类别" Grid.Row="1" Grid.Column="0"/>
+                <Label Text="{Binding SkilledItem.Type}" Grid.Row="1" Grid.Column="1"/>
+                
+                <Label Text="时间" Grid.Row="2" Grid.Column="0"/>
+                <Label Text="{Binding SkilledItem.CreateTime ,Converter={StaticResource DatetimeConverter} }" Grid.Row="2" Grid.Column="1"/>
+                
+                <Label Text="描述" Grid.Row="3" Grid.Column="0"/>
+                <Label Text="{Binding SkilledItem.Description}" Grid.Row="3" Grid.Column="1"/>
+                
+                <Label Text="备注" Grid.Row="4" Grid.Column="0"/>
+                <Label Text="{Binding SkilledItem.Remark}"  
+                           VerticalOptions="Start" HorizontalOptions="Start" Grid.Row="4" Grid.Column="1"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkillPool.Core.Views.templates.SkillTemplate">
+  <ContentView.Content>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Text="{Binding Name}"  LineBreakMode="NoWrap" FontSize="16" 
+                                           VerticalOptions="Center" HorizontalOptions="Start"
+                                           Grid.ColumnSpan="4" Grid.Row="0" Grid.Column="0"/>
+
+            <Label Text="类别:" FontSize="13" VerticalOptions="Center" HorizontalOptions="Start"
+                                           Grid.Row="1" Grid.Column="0"/>
+            <Label Text="{Binding Type}" LineBreakMode="NoWrap" FontSize="13" 
+                                           VerticalOptions="Center" HorizontalOptions="Start"
+                                           Grid.Row="1" Grid.Column="1"/>
+
+            <Label Text="创建时间:" FontSize="13" VerticalOptions="Center" HorizontalOptions="Start"
+                                           Grid.Row="1" Grid.Column="2"/>
+            <Label Text="{Binding CreateTime,Converter={StaticResource DatetimeConverter}}" LineBreakMode="NoWrap" FontSize="13" 
+                                           VerticalOptions="Center" HorizontalOptions="Start"
+                                           Grid.Row="1" Grid.Column="3" />
+
+            <Label Text="描述:" FontSize="13" VerticalOptions="Center" HorizontalOptions="Start"
+                                           Grid.Row="2" Grid.Column="0"/>
+            <Label Text="{Binding Description}" LineBreakMode="NoWrap" FontSize="13" 
+                                           VerticalOptions="Center" HorizontalOptions="Start"
+                                           Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

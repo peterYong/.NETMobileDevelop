@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkillPool.Core.Views.MainView"
+             Title="MainPage"
+             BarBackgroundColor="{StaticResource DarkGreenColor}"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             BarTextColor="{StaticResource WhiteColor}"
+             xmlns:views="clr-namespace:SkillPool.Core.Views"
+             xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
+			 viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             >
+
+    <!-- Skilled -->
+    <views:SkilledView  
+        x:Name="SkilledView">
+        <views:SkilledView.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource">
+                <On Platform="iOS, Android" Value="menu_filter.png" />
+                <On Platform="UWP, WinRT, WinPhone" Value="Assets\menu_filter.png" />
+            </OnPlatform>
+        </views:SkilledView.Icon>
+    </views:SkilledView>
+    <!-- ReadyLearn -->
+    <views:ReadyLearnView
+        x:Name="ReadyLearnView">
+        <views:ReadyLearnView.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource">
+                <On Platform="iOS, Android" Value="menu_filter" />
+                <On Platform="UWP, WinRT, WinPhone" Value="Assets\menu_filter.png" />
+            </OnPlatform>
+        </views:ReadyLearnView.Icon>
+    </views:ReadyLearnView>
+    <!-- Finding -->
+    <views:FindingView  
+        x:Name="FindingView">
+        <views:FindingView.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource">
+                <On Platform="iOS, Android" Value="ic_action_find_in_page" />
+                <On Platform="UWP, WinRT, WinPhone" Value="Assets\ic_action_find_in_page.png" />
+            </OnPlatform>
+        </views:FindingView.Icon>
+    </views:FindingView>
+    <!-- PROFILE -->
+    <views:ProfileView
+        x:Name="ProfileView">
+        <views:ProfileView.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource">
+                <On Platform="iOS, Android" Value="menu_profile" />
+                <On Platform="UWP, WinRT, WinPhone" Value="Assets\menu_profile.png" />
+            </OnPlatform>
+        </views:ProfileView.Icon>
+    </views:ProfileView>
+</TabbedPage>

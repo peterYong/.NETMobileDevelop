@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkillPool.Core.Views.FindingView"
+             xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="True"  
+             
+             xmlns:controls="clr-namespace:SkillPool.Core.Controls"
+             xmlns:templates="clr-namespace:SkillPool.Core.Views.templates"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Finding!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <controls:Autocomplete Text="{Binding Text}"
+                        ItemsSource="{Binding Items}"
+                        SearchCommand="{Binding SerchCommand}"
+                        SelectedItemCommand="{Binding SelectItemCommand}"
+                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                        Padding="10">
+                <controls:Autocomplete.ItemTemplate>
+                    <DataTemplate>
+                        <templates:AutocompleteDefaultTemplate/>
+                    </DataTemplate>
+                </controls:Autocomplete.ItemTemplate>
+            </controls:Autocomplete>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

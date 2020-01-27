@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkillPool.Core.Views.SkilledQueryView"
+             xmlns:behaviors="clr-namespace:SkillPool.Core.Behaviors"
+             xmlns:templates ="clr-namespace:SkillPool.Core.Views.templates"
+             
+              xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="True"  
+             >
+ 
+    <NavigationPage.TitleView>
+        <Entry Text="{Binding QueryName}"
+               Placeholder="请输入要查询的name"
+               >
+            <Entry.Behaviors>
+                <!--TextChanged发生时 执行SkillQueryBtnCommand-->
+                <behaviors:EventToCommandBehavior
+							EventName="TextChanged"
+							Command="{Binding SkillQueryBtnCommand}" />
+            </Entry.Behaviors>
+        </Entry>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                    ItemsSource="{Binding SkilledItems}"
+                    IsVisible="{Binding SkilledItems.Count}"
+                    HasUnevenRows="True"
+                    SeparatorVisibility="None"
+                    CachingStrategy="RecycleElement"
+                    IsPullToRefreshEnabled="True"
+                    >
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior           
+                            EventName="ItemTapped"
+                            Command="{Binding SkillDetailCommand}"
+                            EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
+
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <templates:SkillTemplate />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid 
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
+                <Label 
+                        Text="NO Skilled"      
+                        IsVisible="{Binding SkilledItems.Count, Converter={StaticResource InverseCountToBoolConverter}}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
