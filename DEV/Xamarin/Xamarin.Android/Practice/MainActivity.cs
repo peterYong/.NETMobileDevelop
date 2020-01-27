@@ -30,8 +30,10 @@ namespace Practice
             TestService();
 
             TestAutoComplete();
+            TestMutiAutoComplete();
         }
 
+       
         private void TestAutoComplete()
         {
              string[] COUNTRIES = new string[] {
@@ -192,6 +194,18 @@ namespace Practice
             {
                 //创建一个Intent，传入当前上下文（this，用于引用当前上下文）以及你所查找的应用程序块的类型 (TimestampActivity)：
                 var intent = new Intent(this, typeof(TimestampActivity));
+                StartActivity(intent);
+            };
+        }
+
+        private void TestMutiAutoComplete()
+        {
+            Button testMultiAutoButton = FindViewById<Button>(Resource.Id.testMultiAutoCompleteTextView);
+
+            testMultiAutoButton.Click += (sender, e) =>
+            {
+                //创建一个Intent，传入当前上下文（this，用于引用当前上下文）以及你所查找的应用程序块的类型 (TimestampActivity)：
+                var intent = new Intent(this, typeof(MutiAutoActivity));
                 StartActivity(intent);
             };
         }

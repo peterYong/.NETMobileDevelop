@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CustomRendererWebView.MainPage"
+             xmlns:local="clr-namespace:CustomRendererWebView">
+
+    <!--Uri设置为存储在每个平台项目中的 HTML 文件，并由本机 Web 控件显示。呈现的 HTML 要求用户输入其名称，并使用 JavaScript 函数调用 C# Action 以对 HTML 按钮单击进行响应-->
+    <local:HybridWebView x:Name="hybridWebView"  Uri="index.html" />
+
+</ContentPage>

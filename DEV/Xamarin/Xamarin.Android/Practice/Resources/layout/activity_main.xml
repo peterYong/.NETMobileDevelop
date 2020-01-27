@@ -63,6 +63,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/testService" />
+     <Button
+        android:text="@string/mutiAuto_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/testMultiAutoCompleteTextView" />
 
  <TextView
      android:layout_width="wrap_content"
