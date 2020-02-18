@@ -1,5 +1,7 @@
-﻿using SkillPool.Core.Validations;
+﻿using SkillPool.Core.Helper;
+using SkillPool.Core.Validations;
 using SkillPool.Core.ViewModels.Base;
+using SkillPool.Model.IM;
 using SkillPool.Model.User;
 using SkillPool.Server.Settings;
 using System;
@@ -99,6 +101,8 @@ namespace SkillPool.Core.ViewModels
             _userName = new ValidatableObject<string>();
             _password = new ValidatableObject<string>();
 
+            _userName.Value = "cms18@wotrus.com";
+
             InvalidateMock();
             AddValidations();
             //IsBusy = true;  //显示活动指示器 
@@ -106,9 +110,9 @@ namespace SkillPool.Core.ViewModels
 
         public override Task InitializeAsync(object navigationData)
         {
-            if(navigationData is LogoutParameter logoutParameter)
+            if (navigationData is LogoutParameter logoutParameter)
             {
-                if(logoutParameter.Logout)
+                if (logoutParameter.Logout)
                 {
                     Logout();
                 }
@@ -140,7 +144,7 @@ namespace SkillPool.Core.ViewModels
         {
             _userName.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "A username is required." });
             _password.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "A password is required." });
-            _password.Validations.Add(new PassWordRule<string> { ValidationMessage = "密码最少8位且必须同时包含数字和字母" });
+            //_password.Validations.Add(new PassWordRule<string> { ValidationMessage = "密码最少8位且必须同时包含数字和字母" });
         }
 
 
@@ -180,13 +184,15 @@ namespace SkillPool.Core.ViewModels
             IsBusy = true;
             IsValid = true;
             bool isVilid = Validate();
+            //登录是否成功
             bool isAuthenticated = false;
             if (isVilid)
             {
                 try
                 {
                     await Task.Delay(10);
-                    isAuthenticated = true;
+                    //isAuthenticated = true;
+                    isAuthenticated = Login(UserName.Value);
                 }
                 catch (Exception ex)
                 {
@@ -206,6 +212,26 @@ namespace SkillPool.Core.ViewModels
             }
 
             IsBusy = false;
+        }
+
+        /// <summary>
+        /// 真实的登录
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        private bool Login(string email)
+        {
+            bool result = false;
+            string url = "http://120.79.67.39/api/user" + "?email=" + email;
+            string response = WebApiHelper.InvokeApi(url);
+            var temp = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseModel>(response);
+            if (temp.Code == 200)
+            {
+                result = true;
+                Newtonsoft.Json.Linq.JObject jObject = temp.Data;
+                GlobalSetting.Instance.IM_USER = jObject.ToObject<IM_USER>();
+            }
+            return result;
         }
 
         private bool Validate()

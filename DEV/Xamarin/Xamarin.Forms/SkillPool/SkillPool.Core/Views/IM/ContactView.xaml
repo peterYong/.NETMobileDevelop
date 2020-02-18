@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             
+             xmlns:behaviors="clr-namespace:SkillPool.Core.Behaviors"
+             x:Class="SkillPool.Core.Views.IM.ContactView">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                    ItemsSource="{Binding Users}"
+                    IsVisible="{Binding Users.Count}"
+                    HasUnevenRows="True"
+                    SeparatorVisibility="None"
+                    CachingStrategy="RecycleElement"
+                    IsPullToRefreshEnabled="True"
+                    >
+                <ListView.Behaviors>
+                    
+                <!--ListView有ItemTapped事件，但是需在code-behind中处理。为了在viewmodel中处理，采用通过行为，将事件转为命令来处理-->
+                
+                    <behaviors:EventToCommandBehavior           
+                            EventName="ItemTapped"
+                            Command="{Binding ContactCommand}"
+                            EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<ViewCell.ContextActions>
+                                <MenuItem Clicked="OnDeleteSkilledClicked" Text="删除" IsDestructive="True" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>-->
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Avatar}" />
+                                <Label Text="{Binding UserName}" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start"
+                                          Grid.Column="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

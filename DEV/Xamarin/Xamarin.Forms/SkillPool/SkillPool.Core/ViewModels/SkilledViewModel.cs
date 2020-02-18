@@ -32,7 +32,7 @@ namespace SkillPool.Core.ViewModels
             set
             {
                 _skilledItems = value;
-                RaisePropertyChanged(() => SkilledItems);
+                OnPropertyChanged();
             }
         }
 

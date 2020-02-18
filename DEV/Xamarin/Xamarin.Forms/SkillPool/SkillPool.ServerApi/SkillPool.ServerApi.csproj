@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SkillPool.Model\SkillPool.Model.csproj" />
+    <ProjectReference Include="..\SkillPool.Server\SkillPool.Server.csproj" />
+  </ItemGroup>
+
+
+</Project>

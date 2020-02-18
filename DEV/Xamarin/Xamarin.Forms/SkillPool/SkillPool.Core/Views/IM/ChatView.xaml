@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SkillPool.Core.Views.IM.ChatView"
+             Title="{Binding UserName}"
+             xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="True" 
+              xmlns:behaviors="clr-namespace:SkillPool.Core.Behaviors"
+             >
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="Welcome to 聊天室!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <ListView
+                    ItemsSource="{Binding Contents}"
+                    IsVisible="{Binding Contents.Count}"
+                    HasUnevenRows="True"
+                    SeparatorVisibility="None"
+                    CachingStrategy="RecycleElement"
+                    IsPullToRefreshEnabled="True"
+                    >
+                <!--<ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior           
+                            EventName="ItemTapped"
+                            Command="{Binding ContactCommand}"
+                            EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
+                </ListView.Behaviors>-->
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Avatar}" />
+                                <Label Text="{Binding Content}" FontSize="14" VerticalOptions="Center" HorizontalOptions="Start"
+                                          Grid.Column="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

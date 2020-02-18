@@ -10,13 +10,13 @@
              BackgroundColor="{StaticResource BackgroundColor}"
              BarTextColor="{StaticResource WhiteColor}"
              xmlns:views="clr-namespace:SkillPool.Core.Views"
+             xmlns:viewsIM="clr-namespace:SkillPool.Core.Views.IM"
              xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
 			 viewModelBase:ViewModelLocator.AutoWireViewModel="true"
              >
 
     <!-- Skilled -->
-    <views:SkilledView  
-        x:Name="SkilledView">
+    <views:SkilledView    x:Name="SkilledView">
         <views:SkilledView.Icon>
             <OnPlatform x:TypeArguments="FileImageSource">
                 <On Platform="iOS, Android" Value="menu_filter.png" />
@@ -25,6 +25,7 @@
         </views:SkilledView.Icon>
     </views:SkilledView>
     <!-- ReadyLearn -->
+    <!--
     <views:ReadyLearnView
         x:Name="ReadyLearnView">
         <views:ReadyLearnView.Icon>
@@ -34,7 +35,8 @@
             </OnPlatform>
         </views:ReadyLearnView.Icon>
     </views:ReadyLearnView>
-    <!-- Finding -->
+    -->
+    <!-- Finding --><!--
     <views:FindingView  
         x:Name="FindingView">
         <views:FindingView.Icon>
@@ -43,7 +45,28 @@
                 <On Platform="UWP, WinRT, WinPhone" Value="Assets\ic_action_find_in_page.png" />
             </OnPlatform>
         </views:FindingView.Icon>
-    </views:FindingView>
+    </views:FindingView>-->
+
+    <!-- Message -->
+    <viewsIM:MessageView   x:Name="MessageView">
+        <viewsIM:MessageView.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource">
+                <On Platform="iOS, Android" Value="ic_action_find_in_page" />
+                <On Platform="UWP, WinRT, WinPhone" Value="Assets\ic_action_find_in_page.png" />
+            </OnPlatform>
+        </viewsIM:MessageView.Icon>
+    </viewsIM:MessageView>
+   
+    <!-- Contacts -->
+    <viewsIM:ContactView  x:Name="ContactView">
+        <viewsIM:ContactView.Icon>
+            <OnPlatform x:TypeArguments="FileImageSource">
+                <On Platform="iOS, Android" Value="menu_filter" />
+                <On Platform="UWP, WinRT, WinPhone" Value="Assets\menu_filter.png" />
+            </OnPlatform>
+        </viewsIM:ContactView.Icon>
+    </viewsIM:ContactView>
+
     <!-- PROFILE -->
     <views:ProfileView
         x:Name="ProfileView">
