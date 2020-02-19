@@ -18,6 +18,9 @@ namespace SkillPool.Model.IM
 
         public int RecipientID { get; set; }
 
+        /// <summary>
+        /// 消息类型：0:文本消息，1:语音信息
+        /// </summary>
         public int MsgType { get; set; }
         
         public DateTime CreateTime { get; set; }

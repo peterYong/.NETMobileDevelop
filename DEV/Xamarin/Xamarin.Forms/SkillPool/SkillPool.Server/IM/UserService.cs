@@ -72,28 +72,40 @@ namespace SkillPool.Server.IM
             return response;
         }
 
-        /// <summary>
-        /// 获取Banner集合
-        /// </summary>
-        //public ResponseModel GetBannerList()
-        //{
-        //    var users = _db.USERs.ToList();
-        //    var response = new ResponseModel();
 
-        //    response.Code = 200;
-        //    response.Result = "Banner集合获取成功";
-        //    response.Data = new List<BannerModel>();
-        //    foreach (var banner in banners)
-        //    {
-        //        response.Data.Add(new BannerModel
-        //        {
-        //            Id = banner.Id,
-        //            Image = banner.Image,
-        //            Url = banner.Url,
-        //            Remark = banner.Remark
-        //        });
-        //    }
-        //    return response;
-        //}
+        /// <summary>
+        /// 获取某人的最近的联系人集合（包括最近一条内容用于展示）
+        /// </summary>
+        public ResponseModel GetMsgContactList(int uid)
+        {
+            var response = new ResponseModel()
+            {
+                Code = 0,
+                Result = "获取数据失败"
+            };
+            var contacts = _db.IM_MSG_CONTACT.Where(c => c.OwnerUID == uid);
+            if (contacts != null && contacts.Count() > 0)
+            {
+                response.Code = 200;
+                response.Result = "联系人集合获取成功";
+                response.Data = new List<MsgContact>();
+                foreach (var item in contacts)
+                {
+                    var temp = _db.IM_MSG_CONTENT.FirstOrDefault(c => c.MID == item.MID);
+                    response.Data.Add(new MsgContact
+                    {
+                        OwnerUID = item.OwnerUID,
+                        OtherUID = item.OtherUID,
+                        Type = item.Type,
+                        MID = item.MID,
+                        CreateTime = item.CreateTime,
+                        Content = temp?.Content,
+                        MsgType = temp == null ? 0 : temp.MsgType
+                    });
+                }
+            }
+            return response;
+        }
+
     }
 }

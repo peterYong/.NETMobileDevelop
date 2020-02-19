@@ -34,7 +34,7 @@ namespace SkillPool.Server.IM
         {
             base.OnModelCreating(modelBuilder);
         }
-        public virtual DbSet<IM_MSG_CONTACT> MSgCONTACTs { get; set; }
+        public virtual DbSet<IM_MSG_CONTACT> IM_MSG_CONTACT { get; set; }
         /// <summary>
         /// 联系人列表
         /// </summary>

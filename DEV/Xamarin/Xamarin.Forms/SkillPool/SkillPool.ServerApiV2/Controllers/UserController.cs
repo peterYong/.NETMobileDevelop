@@ -26,14 +26,29 @@ namespace SkillPool.ServerApiV2.Controllers
 
         // GET: api/User?email=
         [HttpGet]
-        public ResponseModel Get(string email)
+        public ResponseModel Get(string email, int uid = 0)
         {
-            //return "value";
-            ResponseModel responseModel = _userService.GetUser(email);
+            ResponseModel responseModel = new ResponseModel();
+            if (uid != 0)
+            {
+                responseModel = _userService.GetMsgContactList(uid);
+            }
+            else
+            {
+                responseModel = _userService.GetUser(email);
+            }
             return responseModel;
         }
 
-       
+        // GET: api/User?uid=
+        //[HttpGet]
+        //public ResponseModel GetMsgContactList(int uid)
+        //{
+        //    //return "value";
+        //    ResponseModel responseModel = _userService.GetMsgContactList(uid);
+        //    return responseModel;
+        //}
+
 
         // POST: api/User
         [HttpPost]

@@ -29,6 +29,7 @@ namespace SkillPool.ServerApiV2
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddTransient<UserService>();
+            services.AddTransient<ContentService>();
             services.AddTransient<Db>();
         }
 
