@@ -16,6 +16,9 @@ namespace SkillPool.Model.IM
 
         public int MID { get; set; }
 
+        /// <summary>
+        /// 发件：0， 收件：1
+        /// </summary>
         public int Type { get; set; }
 
         public DateTime CreateTime { get; set; }

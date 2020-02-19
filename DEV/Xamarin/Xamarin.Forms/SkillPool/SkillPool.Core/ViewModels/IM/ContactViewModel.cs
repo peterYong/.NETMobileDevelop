@@ -49,15 +49,19 @@ namespace SkillPool.Core.ViewModels.IM
             if (temp.Code == 200)
             {
                 Newtonsoft.Json.Linq.JArray jObject = temp.Data;
-                GlobalSetting.Instance.IM_Contants = jObject.ToObject<List<IM_USER>> ();
+                GlobalSetting.Instance.IM_Contants = jObject.ToObject<List<IM_USER>>();
             }
         }
 
         public ICommand ContactCommand => new Command<IM_USER>(async (user) => await ContactCommandAsync(user));
 
+        /// <summary>
+        /// 单击联系人进入聊天界面
+        /// </summary>
+        /// <param name="user">联系人</param>
+        /// <returns></returns>
         private async Task ContactCommandAsync(IM_USER user)
         {
-            //SkilledItem skilled = (SkilledItem)BindingContext;
             await NavigationService.NavigateToAsync<ChatViewModel>(user).ConfigureAwait(false);
         }
 

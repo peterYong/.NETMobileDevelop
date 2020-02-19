@@ -26,7 +26,7 @@ namespace SkillPool.Server.IM
 
                 //string conString = config.GetSection("ConnectionStrings:DevContext").Value; // 分层键
                 //optionsBuilder.UseMySQL(conString);
-                optionsBuilder.UseMySQL(@"server=120.79.67.39;uid=root;pwd=;
+                optionsBuilder.UseMySQL(@"server=120.79.67.39;uid=root;pwd=Sy900511@;
                     port=3306;database=IM;sslmode=Preferred;");
             }
         }

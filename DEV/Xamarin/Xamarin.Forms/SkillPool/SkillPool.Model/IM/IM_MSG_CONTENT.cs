@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace SkillPool.Model.IM
@@ -9,8 +11,8 @@ namespace SkillPool.Model.IM
     /// </summary>
     public class IM_MSG_CONTENT
     {
-        public int ID { get; set; }
-
+        [Key] //主键 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  //设置自增
         public int MID { get; set; }
         public string Content { get; set; }
 

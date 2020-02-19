@@ -4,6 +4,9 @@ using System.Text;
 
 namespace SkillPool.Model.IM
 {
+    /// <summary>
+    /// 最近联系人
+    /// </summary>
     public class IM_MSG_CONTACT
     {
         public int ID { get; set; }

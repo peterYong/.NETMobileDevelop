@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SkillPool.Common\SkillPool.Common.csproj" />
     <ProjectReference Include="..\SkillPool.Server\SkillPool.Server.csproj" />
   </ItemGroup>
 

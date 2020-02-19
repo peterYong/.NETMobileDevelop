@@ -12,10 +12,6 @@
              >
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label Text="Welcome to 聊天室!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-
             <ListView
                     ItemsSource="{Binding Contents}"
                     IsVisible="{Binding Contents.Count}"
@@ -51,6 +47,17 @@
                 </ListView.ItemTemplate>
 
             </ListView>
-        </StackLayout>
+            <Grid  BackgroundColor="#C0C0C0" Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Editor Text="{Binding Msg}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" AutoSize="TextChanges" />
+                <Button Grid.Column="1" Text="发送" HeightRequest="50" TextColor="White" BackgroundColor="LightSeaGreen" HorizontalOptions="EndAndExpand" VerticalOptions="End" Command="{Binding SendMsgCommand}"/>
+            </Grid>
+         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
