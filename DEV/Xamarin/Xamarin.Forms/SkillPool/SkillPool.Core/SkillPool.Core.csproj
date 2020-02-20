@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RedisHelper\RedisHelper.csproj" />
     <ProjectReference Include="..\SkillPool.Common\SkillPool.Common.csproj" />
     <ProjectReference Include="..\SkillPool.DataAccess\SkillPool.DataAccess.csproj" />
     <ProjectReference Include="..\SkillPool.Server\SkillPool.Server.csproj" />

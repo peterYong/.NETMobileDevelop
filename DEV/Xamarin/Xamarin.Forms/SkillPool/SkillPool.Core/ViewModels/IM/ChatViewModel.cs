@@ -1,14 +1,19 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RedisHelper;
 using SkillPool.Common.Extensions;
 using SkillPool.Core.Helper;
 using SkillPool.Core.ViewModels.Base;
+using SkillPool.Core.Views;
+using SkillPool.Core.Views.IM;
 using SkillPool.Model.IM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -25,7 +30,6 @@ namespace SkillPool.Core.ViewModels.IM
         /// </summary>
         private IM_USER recipient = new IM_USER();
         #endregion
-
 
         #region BindableProperties
         public string UserName
@@ -57,6 +61,52 @@ namespace SkillPool.Core.ViewModels.IM
 
         #endregion
 
+        #region Init
+
+        public ChatViewModel()
+        {
+            if (!GlobalSetting.Instance.HasSubRedis)
+            {
+                GlobalSetting.Instance.HasSubRedis = true;
+                RedisCacheHelper.Init();
+                Task.Run(()=>
+                {
+                    RedisCacheHelper.RedisSub("IM", GetMessage);
+                });
+
+
+                Task.Run(() =>
+                {
+                    Timer timer = new Timer();
+                    timer.Interval = 5000;
+                    timer.Elapsed += Timer_Elapsed;
+                    timer.Start();
+                });
+            }
+        }
+
+         /// <summary>
+         /// 后台定时到redis中取聊天信息，并且通过WebApi服务添加到数据库
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            IDictionary<string, IM_MSG_CONTENT> dic = new Dictionary<string, IM_MSG_CONTENT>();
+            dic = RedisCacheHelper.GetAll<IM_MSG_CONTENT>("IM:*");
+            if (dic != null)
+            {
+                foreach (var item in dic)
+                {
+                    //Console.WriteLine($"key={item.Key},value={item.Value}");
+                    if (SendApi(item.Value))
+                    {
+                        RedisCacheHelper.Remove(item.Key);
+                    }
+                }
+            }
+
+        }
 
         public override async Task InitializeAsync(object navigationData)
         {
@@ -89,7 +139,44 @@ namespace SkillPool.Core.ViewModels.IM
                     SenderID = item.SenderID
                 });
             }
+
+            //直接显示最后一条
+            //CustomNavigationView mainPage = Application.Current.MainPage as CustomNavigationView ;
+
+            //if (mainPage != null)
+            //{
+            //    ChatView currentPage = mainPage.Navigation.NavigationStack[mainPage.Navigation.NavigationStack.Count - 1] as ChatView;
+            //    currentPage?.chatListView.ScrollTo(Contents[Contents.Count-1],  ScrollToPosition.End , false);
+            //}
+
         }
+
+        /// <summary>
+        /// redis订阅，有人发信息过来就会收到
+        /// </summary>
+        /// <param name="channel"></param>
+        /// <param name="message"></param>
+        private void GetMessage(string channel, string message)
+        {
+            IM_MSG_CONTENT item = JsonConvert.DeserializeObject<IM_MSG_CONTENT>(message);
+            if (item != null && item.SenderID == recipient.UID && item.RecipientID == GlobalSetting.Instance.IM_USER.UID)  //是当前联系人发给我的信息
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Contents.Add(new ContentModel
+                    {
+                        Avatar = recipient.Avatar,
+                        Content = item.Content,
+                        CreateTime = item.CreateTime,
+                        MID = item.MID,
+                        MsgType = item.MsgType,
+                        RecipientID = item.RecipientID,
+                        SenderID = item.SenderID
+                    });
+                });
+            }
+        }
+
 
         /// <summary>
         /// 获取聊天信息
@@ -110,22 +197,24 @@ namespace SkillPool.Core.ViewModels.IM
             return contents;
         }
 
+        #endregion
+
+        #region Command
+
 
         public ICommand SendMsgCommand => new Command(async () => await SendMsgCommandAsync());
-
 
         /// <summary>
         /// 发送聊天信息
         /// </summary>
         /// <returns></returns>
-        private async Task SendMsgCommandAsync()
+        private async Task SendMsgCommandAsyncOne()
         {
             string msg = Msg;
             if (string.IsNullOrEmpty(msg))
             {
                 return;
             }
-
             var url = "http://120.79.67.39/api/content";
             IM_MSG_CONTENT request = new IM_MSG_CONTENT()
             {
@@ -135,6 +224,7 @@ namespace SkillPool.Core.ViewModels.IM
                 MsgType = 0,
                 CreateTime = DateTime.Now
             };
+            PubRedis(request);
 
             string response = WebApiHelper.SendApi(JsonConvert.SerializeObject(request), url);
             //string response = WebApiHelper.SendApi(request, url);
@@ -154,54 +244,74 @@ namespace SkillPool.Core.ViewModels.IM
                 });
             }
 
+        }
 
-            //#region HttpHelper.Send
-            //var result = HttpHelper.Send(JsonConvert.SerializeObject(request), url).Result;
-            //if (result.ErrorCode == 0)
-            //{
-            //    if (result.Data != null)
-            //    {
-            //        //根本不用定义返回Model
-            //        //OrganizationOfflineResponse rs = JsonConvert.DeserializeObject<OrganizationOfflineResponse>(result.Data);
+        /// <summary>
+        /// 发布消息到redis通道IM，，，并且增加到reids。立马返回，存库操作在后台执行
+        /// </summary>
+        /// <param name="message"></param>
+        private long PubRedis(IM_MSG_CONTENT message)
+        {
+            string channel = "IM";
+            long result = RedisCacheHelper.RedisPub(channel, Newtonsoft.Json.JsonConvert.SerializeObject(message));
+            RedisCacheHelper.Add($"IM:{message.SenderID}-{message.RecipientID}-{DateTime.Now.ToDTNow().ToString("yyyyMMddHHmmss")}", message, DateTime.Now.AddMonths(1));
+            return result;
+        }
 
-            //        //采用动态解析，只获取所需要的参数【注意定义为可null类型】
-            //        //dynamic djson = JToken.Parse(result.Data) as dynamic;
-            //        //if (djson.head.code == 0)
-            //        //{
-            //        //    dynamic json = djson.data;
-            //        //    string name = json.OrganizationID;
-            //        //    string company = json.OrganizationCode;
-            //        //    DateTime? entered = json.Entered;
-            //        //    int? type = json.Type;
-            //        //    Console.WriteLine("name:" + name);
-            //        //    Console.WriteLine("company:" + company);
-            //        //    Console.WriteLine("type:" + type);
+        private async Task SendMsgCommandAsync()
+        {
+            string msg = Msg;
+            if (string.IsNullOrEmpty(msg))
+            {
+                return;
+            }
 
-            //        //    Console.WriteLine("entered:" + entered);
-            //        //}
-
-            //        //Newtonsoft.Json.Linq.JArray jObject = result.Data;
-            //        //GlobalSetting.Instance.IM_Contants = jObject.ToObject<List<IM_USER>>();
-            //        ResponseModel responseModel = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseModel>(result.Data);
-            //        if (responseModel.Code == 0)
-            //        {
-
-            //            Contents.Add(new ContentModel()
-            //            {
-            //                Avatar = GlobalSetting.Instance.IM_USER.Avatar,
-            //                Content = msg,
-            //                CreateTime = request.CreateTime,
-            //                MID = request.MID,
-            //                MsgType = request.MsgType,
-            //                RecipientID = request.RecipientID,
-            //                SenderID = request.SenderID
-            //            });
-            //        }
-            //    }
-            //}
-            //#endregion
+            IM_MSG_CONTENT request = new IM_MSG_CONTENT()
+            {
+                Content = msg,
+                SenderID = GlobalSetting.Instance.IM_USER.UID,
+                RecipientID = recipient.UID,
+                MsgType = 0,
+                CreateTime = DateTime.Now.ToDTNow()
+            };
+            long re = PubRedis(request);
+            if (re >= 0)
+            {
+                //聊天信息添加成功
+                Contents.Add(new ContentModel()
+                {
+                    Avatar = GlobalSetting.Instance.IM_USER.Avatar,
+                    Content = msg,
+                    CreateTime = request.CreateTime,
+                    MID = request.MID,
+                    MsgType = request.MsgType,
+                    RecipientID = request.RecipientID,
+                    SenderID = request.SenderID
+                });
+            }
 
         }
+
+        /// <summary>
+        /// 发送信息 通过api服务，保存到数据库
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        private bool SendApi(IM_MSG_CONTENT request)
+        {
+            bool result = false;
+            var url = "http://120.79.67.39/api/content";
+            string response = WebApiHelper.SendApi(JsonConvert.SerializeObject(request), url);
+            //string response = WebApiHelper.SendApi(request, url);
+            var temp = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseModel>(response);
+            if (temp?.Code == 200)
+            {
+                result = true;
+            }
+            return result;
+        }
+        #endregion
+
     }
 
 }

@@ -17,6 +17,11 @@ namespace SkillPool.Core
         /// </summary>
         public List<IM_USER> IM_Contants { get; set; }
 
+        /// <summary>
+        /// 是否订阅了Redis
+        /// </summary>
+        public bool HasSubRedis { get; set; } = false;
+
         public GlobalSetting()
         {
             //AuthToken = "INSERT AUTHENTICATION TOKEN";

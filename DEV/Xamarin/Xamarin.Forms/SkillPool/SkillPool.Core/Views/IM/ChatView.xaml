@@ -12,7 +12,7 @@
              >
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <ListView
+            <ListView x:Name="chatListView" x:FieldModifier="Public"
                     ItemsSource="{Binding Contents}"
                     IsVisible="{Binding Contents.Count}"
                     HasUnevenRows="True"

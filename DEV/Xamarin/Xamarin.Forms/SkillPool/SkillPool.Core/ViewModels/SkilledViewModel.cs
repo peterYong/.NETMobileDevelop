@@ -24,6 +24,7 @@ namespace SkillPool.Core.ViewModels
         public SkilledViewModel(ISkilledService skilledService)
         {
             _skilledService = skilledService;
+            Time = DateTime.Now.ToString(System.Globalization.CultureInfo.InvariantCulture); //测试用
         }
 
         public ObservableCollection<SkilledItem> SkilledItems
@@ -52,6 +53,16 @@ namespace SkillPool.Core.ViewModels
             {
                 _queryName = value;
                 RaisePropertyChanged(() => QueryName);
+            }
+        }
+        private string time;
+        public string Time
+        {
+            get { return time; }
+            set
+            {
+                time = value;
+                RaisePropertyChanged(() => Time);
             }
         }
 

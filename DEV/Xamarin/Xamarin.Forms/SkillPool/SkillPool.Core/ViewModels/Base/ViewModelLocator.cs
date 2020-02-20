@@ -1,5 +1,7 @@
-﻿using SkillPool.Core.Navigation;
+﻿using RedisHelper;
+using SkillPool.Core.Navigation;
 using SkillPool.Core.Services.Skilled;
+using SkillPool.Core.ViewModels.IM;
 using SkillPool.DataAccess.Skilled;
 using SkillPool.Server.Settings;
 using System;
@@ -33,6 +35,8 @@ namespace SkillPool.Core.ViewModels.Base
             _container.Register<SkilledViewModel>();
             _container.Register<SkilledDetailViewModel>();
             _container.Register<SkilledSaveViewModel>();
+            _container.Register<ChatViewModel>();
+            //_container.Register<RedisCacheHelper>();
 
             // Services - by default, TinyIoC will register interface registrations as singletons.(TinyIoC默认将接口映射注册为单例)
             _container.Register<INavigationService, NavigationService>().AsSingleton();

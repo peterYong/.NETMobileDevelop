@@ -51,6 +51,7 @@
 
     <ContentPage.Content>
         <StackLayout>
+            <!--<Label Text="{Binding Time}"/>-->
             <ListView
                     ItemsSource="{Binding SkilledItems}"
                     IsVisible="{Binding SkilledItems.Count}"

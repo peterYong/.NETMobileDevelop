@@ -223,6 +223,7 @@ namespace SkillPool.Core.ViewModels
         {
             bool result = false;
             string url = "http://120.79.67.39/api/user" + "?email=" + email;
+            //string url = "http://10.0.2.2:5000/api/user" + "?email=" + email;
             string response = WebApiHelper.InvokeApi(url);
             var temp = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseModel>(response);
             if (temp.Code == 200)
