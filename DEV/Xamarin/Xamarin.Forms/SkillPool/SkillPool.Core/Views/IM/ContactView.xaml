@@ -7,13 +7,21 @@
              
              xmlns:behaviors="clr-namespace:SkillPool.Core.Behaviors"
              x:Class="SkillPool.Core.Views.IM.ContactView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <ListView
                     ItemsSource="{Binding Users}"
                     IsVisible="{Binding Users.Count}"
                     HasUnevenRows="True"
-                    SeparatorVisibility="None"
+                    SelectionMode="None"
                     CachingStrategy="RecycleElement"
                     IsPullToRefreshEnabled="True"
                     >
@@ -38,7 +46,7 @@
                                     <RowDefinition Height="50"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Image Source="{Binding Avatar}" />

@@ -15,6 +15,8 @@ namespace SkillPool.Core.Views.IM
         public ChatView()
         {
             InitializeComponent();
+
+            //NavigationPage.SetHasNavigationBar(this, true);
         }
     }
 }

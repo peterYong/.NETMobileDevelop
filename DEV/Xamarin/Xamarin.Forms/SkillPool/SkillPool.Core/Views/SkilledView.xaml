@@ -33,9 +33,6 @@
                 <Setter Property="VerticalOptions"
                         Value="Center" />
             </Style>
-
-
-
         </ResourceDictionary>
     </ContentPage.Resources>
 

@@ -29,6 +29,11 @@ namespace SkillPool.Core.ViewModels.IM
         /// 接收者
         /// </summary>
         private IM_USER recipient = new IM_USER();
+
+        /// <summary>
+        /// 当前页面
+        /// </summary>
+        private ChatView currentPage;
         #endregion
 
         #region BindableProperties
@@ -69,7 +74,7 @@ namespace SkillPool.Core.ViewModels.IM
             {
                 GlobalSetting.Instance.HasSubRedis = true;
                 RedisCacheHelper.Init();
-                Task.Run(()=>
+                Task.Run(() =>
                 {
                     RedisCacheHelper.RedisSub("IM", GetMessage);
                 });
@@ -85,11 +90,11 @@ namespace SkillPool.Core.ViewModels.IM
             }
         }
 
-         /// <summary>
-         /// 后台定时到redis中取聊天信息，并且通过WebApi服务添加到数据库
-         /// </summary>
-         /// <param name="sender"></param>
-         /// <param name="e"></param>
+        /// <summary>
+        /// 后台定时到redis中取聊天信息，并且通过WebApi服务添加到数据库
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             IDictionary<string, IM_MSG_CONTENT> dic = new Dictionary<string, IM_MSG_CONTENT>();
@@ -136,18 +141,28 @@ namespace SkillPool.Core.ViewModels.IM
                     MID = item.MID,
                     MsgType = item.MsgType,
                     RecipientID = item.RecipientID,
-                    SenderID = item.SenderID
+                    SenderID = item.SenderID,
+                    IsSelf = sender.UID == item.SenderID
                 });
             }
 
             //直接显示最后一条
-            //CustomNavigationView mainPage = Application.Current.MainPage as CustomNavigationView ;
+            CustomNavigationView mainPage = Application.Current.MainPage as CustomNavigationView;
 
-            //if (mainPage != null)
-            //{
-            //    ChatView currentPage = mainPage.Navigation.NavigationStack[mainPage.Navigation.NavigationStack.Count - 1] as ChatView;
-            //    currentPage?.chatListView.ScrollTo(Contents[Contents.Count-1],  ScrollToPosition.End , false);
-            //}
+            if (mainPage != null && Contents.Count >= 1)
+            {
+                 currentPage = mainPage.Navigation.NavigationStack[mainPage.Navigation.NavigationStack.Count - 1] as ChatView;
+                //Task.Delay(100).ContinueWith(t =>
+                // {
+
+                // });
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    currentPage?.chatListView.ScrollTo(Contents[Contents.Count - 1], ScrollToPosition.End, false);
+                });
+
+            }
 
         }
 
@@ -200,7 +215,6 @@ namespace SkillPool.Core.ViewModels.IM
         #endregion
 
         #region Command
-
 
         public ICommand SendMsgCommand => new Command(async () => await SendMsgCommandAsync());
 
@@ -286,7 +300,14 @@ namespace SkillPool.Core.ViewModels.IM
                     MID = request.MID,
                     MsgType = request.MsgType,
                     RecipientID = request.RecipientID,
-                    SenderID = request.SenderID
+                    SenderID = request.SenderID,
+                    IsSelf = true
+                });
+                //清空聊天信息框，同事拉到最后一条信息
+                Msg = "";
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    currentPage?.chatListView.ScrollTo(Contents[Contents.Count - 1], ScrollToPosition.End, false);
                 });
             }
 

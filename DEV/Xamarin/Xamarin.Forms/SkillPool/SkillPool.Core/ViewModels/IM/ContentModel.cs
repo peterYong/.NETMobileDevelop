@@ -26,5 +26,10 @@ namespace SkillPool.Core.ViewModels.IM
         /// 头像
         /// </summary>
         public string Avatar { get; set; }
+
+        /// <summary>
+        /// 是否是自己
+        /// </summary>
+        public bool IsSelf { get; set; }
     }
 }
