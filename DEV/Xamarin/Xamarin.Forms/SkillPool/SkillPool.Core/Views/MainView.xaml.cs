@@ -8,22 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace SkillPool.Core.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainView : TabbedPage
+    public partial class MainView : Xamarin.Forms.TabbedPage
     {
         public MainView()
         {
             InitializeComponent();
+
+            On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom).SetIsSmoothScrollEnabled(false);//禁用，则从Tab1到Tab4不显示2、3的过渡
+
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-
+          
             MessagingCenter.Subscribe<MainViewModel, int>(this, message: MessageKeys.ChangeTab, (sender, arg) =>
                {
                    switch (arg)

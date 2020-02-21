@@ -15,7 +15,7 @@ namespace SkillPool.Core
         /// <summary>
         /// 联系人列表
         /// </summary>
-        public List<IM_USER> IM_Contants { get; set; }
+        public List<IM_USER> IM_Contacts { get; set; }
 
         /// <summary>
         /// 是否订阅了Redis

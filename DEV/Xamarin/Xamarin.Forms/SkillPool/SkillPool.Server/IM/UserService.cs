@@ -76,6 +76,8 @@ namespace SkillPool.Server.IM
         /// <summary>
         /// 获取某人的最近的联系人集合（包括最近一条内容用于展示）
         /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
         public ResponseModel GetMsgContactList(int uid)
         {
             var response = new ResponseModel()
@@ -83,7 +85,7 @@ namespace SkillPool.Server.IM
                 Code = 0,
                 Result = "获取数据失败"
             };
-            var contacts = _db.IM_MSG_CONTACT.Where(c => c.OwnerUID == uid);
+            var contacts = _db.IM_MSG_CONTACT.Where(c => c.OwnerUID == uid).OrderByDescending(t => t.CreateTime);
             if (contacts != null && contacts.Count() > 0)
             {
                 response.Code = 200;
@@ -92,6 +94,7 @@ namespace SkillPool.Server.IM
                 foreach (var item in contacts)
                 {
                     var temp = _db.IM_MSG_CONTENT.FirstOrDefault(c => c.MID == item.MID);
+                    var user = _db.IM_USER.FirstOrDefault(c => c.UID == item.OtherUID);
                     response.Data.Add(new MsgContact
                     {
                         OwnerUID = item.OwnerUID,
@@ -100,7 +103,9 @@ namespace SkillPool.Server.IM
                         MID = item.MID,
                         CreateTime = item.CreateTime,
                         Content = temp?.Content,
-                        MsgType = temp == null ? 0 : temp.MsgType
+                        MsgType = temp == null ? 0 : temp.MsgType,
+                        Avatar = user.Avatar,
+                        UserName=user.UserName
                     });
                 }
             }

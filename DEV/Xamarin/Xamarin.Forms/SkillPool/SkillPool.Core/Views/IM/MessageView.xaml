@@ -4,12 +4,61 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="SkillPool.Core.Views.IM.MessageView">
+              xmlns:behaviors="clr-namespace:SkillPool.Core.Behaviors"
+             x:Class="SkillPool.Core.Views.IM.MessageView"
+             Title="消息"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="50"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView
+                    ItemsSource="{Binding ContactMsgs}"
+                    IsVisible="{Binding ContactMsgs.Count}"
+                    HasUnevenRows="True"
+                    SelectionMode="None"
+                    CachingStrategy="RecycleElement"
+                    IsPullToRefreshEnabled="True"
+                    >
+                <ListView.Behaviors>
+                    <!--ListView有ItemTapped事件，但是需在code-behind中处理。为了在viewmodel中处理，采用通过行为，将事件转为命令来处理-->
+                    <behaviors:EventToCommandBehavior           
+                            EventName="ItemTapped"
+                            Command="{Binding ContactCommand}"
+                            EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<ViewCell.ContextActions>
+                                <MenuItem Clicked="OnDeleteSkilledClicked" Text="删除" IsDestructive="True" CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>-->
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding Avatar}"  />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding UserName}" FontSize="18" TextColor="Black"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding CreateTime,StringFormat='{0:yyyy-MM-dd HH:mm}'}" HorizontalOptions="EndAndExpand"/>
+                                <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Content}" LineBreakMode="TailTruncation" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -30,5 +30,16 @@ namespace SkillPool.Model.IM
         /// 消息类型：0:文本消息，1:语音信息
         /// </summary>
         public int MsgType { get; set; }
+
+        /// <summary>
+        /// 头像
+        /// </summary>
+        public string Avatar { get; set; }
+
+        /// <summary>
+        /// 联系人的用户名
+        /// </summary>
+        public string UserName { get; set; }
+
     }
 }

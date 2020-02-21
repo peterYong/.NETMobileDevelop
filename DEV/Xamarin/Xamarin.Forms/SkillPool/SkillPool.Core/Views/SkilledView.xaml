@@ -10,6 +10,7 @@
              xmlns:templates ="clr-namespace:SkillPool.Core.Views.templates"
              xmlns:viewModelBase="clr-namespace:SkillPool.Core.ViewModels.Base"
              viewModelBase:ViewModelLocator.AutoWireViewModel="True"  
+             Title="技能"
              >
     <ContentPage.Resources>
         <ResourceDictionary>

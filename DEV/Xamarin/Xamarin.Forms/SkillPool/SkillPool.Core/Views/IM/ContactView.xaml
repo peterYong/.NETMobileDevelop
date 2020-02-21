@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             
+             Title="通讯录"
              xmlns:behaviors="clr-namespace:SkillPool.Core.Behaviors"
              x:Class="SkillPool.Core.Views.IM.ContactView">
     <ContentPage.Resources>

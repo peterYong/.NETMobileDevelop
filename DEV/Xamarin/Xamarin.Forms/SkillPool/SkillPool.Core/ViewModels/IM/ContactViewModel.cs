@@ -14,12 +14,6 @@ namespace SkillPool.Core.ViewModels.IM
 {
     public class ContactViewModel : ViewModelBase
     {
-        public ContactViewModel()
-        {
-            InitData();
-        }
-
-
         private ObservableCollection<IM_USER> _users;
         public ObservableCollection<IM_USER> Users
         {
@@ -30,29 +24,35 @@ namespace SkillPool.Core.ViewModels.IM
                 OnPropertyChanged();
             }
         }
+
+        public ContactViewModel()
+        {
+            InitData();
+        }
+
         private void InitData()
         {
             Users = new ObservableCollection<IM_USER>();
             IM_USER currentUser = GlobalSetting.Instance.IM_USER;
-            if (currentUser != null)
+            if (currentUser != null && GlobalSetting.Instance.IM_Contacts == null)
             {
-                GetContatct(currentUser.UID);
+                IMHelper.GetContatct(currentUser.UID);
             }
-            Users = GlobalSetting.Instance.IM_Contants.ToObservableCollection();
+            Users = GlobalSetting.Instance.IM_Contacts.ToObservableCollection();
         }
 
-        private void GetContatct(int uid)
-        {
-            string url = "http://120.79.67.39/api/contact/" + uid;
-            string response = WebApiHelper.InvokeApi(url);
-            var temp = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseModel>(response);
-            if (temp.Code == 200)
-            {
-                Newtonsoft.Json.Linq.JArray jObject = temp.Data;
-                GlobalSetting.Instance.IM_Contants = jObject.ToObject<List<IM_USER>>();
-            }
-        }
-
+        //private void GetContatct(int uid)
+        //{
+        //    string url = "http://120.79.67.39/api/contact/" + uid;
+        //    string response = WebApiHelper.InvokeApi(url);
+        //    var temp = Newtonsoft.Json.JsonConvert.DeserializeObject<ResponseModel>(response);
+        //    if (temp.Code == 200)
+        //    {
+        //        Newtonsoft.Json.Linq.JArray jObject = temp.Data;
+        //        GlobalSetting.Instance.IM_Contacts = jObject.ToObject<List<IM_USER>>();
+        //    }
+        //}
+        #region 
         public ICommand ContactCommand => new Command<IM_USER>(async (user) => await ContactCommandAsync(user));
 
         /// <summary>
@@ -65,6 +65,7 @@ namespace SkillPool.Core.ViewModels.IM
             await NavigationService.NavigateToAsync<ChatViewModel>(user).ConfigureAwait(false);
         }
 
+        #endregion
 
 
     }

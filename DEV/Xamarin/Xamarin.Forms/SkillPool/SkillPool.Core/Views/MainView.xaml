@@ -16,7 +16,7 @@
              >
 
     <!-- Skilled -->
-    <views:SkilledView    x:Name="SkilledView">
+    <views:SkilledView   x:Name="SkilledView">
         <views:SkilledView.Icon>
             <OnPlatform x:TypeArguments="FileImageSource">
                 <On Platform="iOS, Android" Value="menu_filter.png" />
@@ -36,7 +36,8 @@
         </views:ReadyLearnView.Icon>
     </views:ReadyLearnView>
     -->
-    <!-- Finding --><!--
+    <!-- Finding -->
+    <!--
     <views:FindingView  
         x:Name="FindingView">
         <views:FindingView.Icon>
@@ -48,7 +49,7 @@
     </views:FindingView>-->
 
     <!-- Message -->
-    <viewsIM:MessageView   x:Name="MessageView">
+    <viewsIM:MessageView  x:Name="MessageView">
         <viewsIM:MessageView.Icon>
             <OnPlatform x:TypeArguments="FileImageSource">
                 <On Platform="iOS, Android" Value="ic_action_find_in_page" />
@@ -56,7 +57,7 @@
             </OnPlatform>
         </viewsIM:MessageView.Icon>
     </viewsIM:MessageView>
-   
+
     <!-- Contacts -->
     <viewsIM:ContactView  x:Name="ContactView">
         <viewsIM:ContactView.Icon>

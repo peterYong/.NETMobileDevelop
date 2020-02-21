@@ -268,7 +268,7 @@ namespace SkillPool.Core.ViewModels.IM
         {
             string channel = "IM";
             long result = RedisCacheHelper.RedisPub(channel, Newtonsoft.Json.JsonConvert.SerializeObject(message));
-            RedisCacheHelper.Add($"IM:{message.SenderID}-{message.RecipientID}-{DateTime.Now.ToDTNow().ToString("yyyyMMddHHmmss")}", message, DateTime.Now.AddMonths(1));
+            RedisCacheHelper.Add($"IM:{message.SenderID}-{message.RecipientID}-{DateTime.Now.ToString("yyyyMMddHHmmss")}", message, DateTime.Now.AddMonths(1));
             return result;
         }
 
@@ -286,7 +286,7 @@ namespace SkillPool.Core.ViewModels.IM
                 SenderID = GlobalSetting.Instance.IM_USER.UID,
                 RecipientID = recipient.UID,
                 MsgType = 0,
-                CreateTime = DateTime.Now.ToDTNow()
+                CreateTime = DateTime.Now
             };
             long re = PubRedis(request);
             if (re >= 0)
