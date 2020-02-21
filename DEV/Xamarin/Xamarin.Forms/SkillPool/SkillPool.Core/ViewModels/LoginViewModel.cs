@@ -1,6 +1,7 @@
 ﻿using SkillPool.Core.Helper;
 using SkillPool.Core.Validations;
 using SkillPool.Core.ViewModels.Base;
+using SkillPool.Core.ViewModels.IM;
 using SkillPool.Model.IM;
 using SkillPool.Model.User;
 using SkillPool.Server.Settings;
@@ -231,6 +232,10 @@ namespace SkillPool.Core.ViewModels
                 result = true;
                 Newtonsoft.Json.Linq.JObject jObject = temp.Data;
                 GlobalSetting.Instance.IM_USER = jObject.ToObject<IM_USER>();
+                if (GlobalSetting.Instance.IM_USER != null)
+                {
+                    IMHelper.GetContatct(GlobalSetting.Instance.IM_USER.UID);
+                }
             }
             return result;
         }
