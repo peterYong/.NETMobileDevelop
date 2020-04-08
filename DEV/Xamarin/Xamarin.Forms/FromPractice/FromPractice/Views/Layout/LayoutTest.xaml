@@ -12,7 +12,9 @@
                     x:Name="Btn_AbsoluteLayoutTestPage"
                     Clicked="Btn_AbsoluteLayoutTestPage_Clicked"/>
 
-           
+            <Button Text="StackLayoutTestPage"  
+                    x:Name="Btn_StackLayoutTestPage"
+                    Clicked="Btn_StackLayoutTestPage_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

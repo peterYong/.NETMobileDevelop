@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FromPractice.Views.Layout.StackLayoutTestPage"
+             xmlns:controls="clr-namespace:FromPractice.Controls"
+            >
+    <ContentPage.Content>
+        <StackLayout Margin="0,0,0,0" BackgroundColor="White">
+            <StackLayout   >
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <TableView Intent="Data"  HasUnevenRows="True" >
+                        <TableRoot >
+                            <TableSection x:Name="section" x:FieldModifier="public">
+                                <SwitchCell Text="自动刷新" On="True"></SwitchCell>
+                               
+                                <SwitchCell x:Name="duohang" x:FieldModifier="Public"  On="True"  Tapped="duohang_Tapped"></SwitchCell>
+                                <SwitchCell Text="设备锁"  On="True"></SwitchCell>
+                                <!--<TextCell Text="Welcome to Xamarin.Forms!" Detail="hahasd"></TextCell>-->
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                    <Label x:Name="time" x:FieldModifier="Public"></Label>
+                    <Label x:Name="time2" x:FieldModifier="Public"></Label>
+                </StackLayout>
+                <Button Text="保存" Margin="5,15,5,5" TextColor="White" BackgroundColor="#3bb777" CornerRadius="23"
+                    BorderWidth="0.5" FontSize="18" 
+                        HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+
+                </Button>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
