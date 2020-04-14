@@ -17,22 +17,22 @@ namespace SkillPool.ServerApiV2
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseStartup<Startup>();
-        //public static IWebHostBuilder CreateWebHostBuilder(string[] args)
-        //{
+        //public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        //WebHost.CreateDefaultBuilder(args)
+        //    .UseStartup<Startup>();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
 
 
-        //    var configuration = new ConfigurationBuilder().SetBasePath(Environment.CurrentDirectory)
-        //                                     .AddJsonFile("host.json")
-        //                                     .Build();
-        //    var url = configuration["urls"];
+            var configuration = new ConfigurationBuilder().SetBasePath(Environment.CurrentDirectory)
+                                             .AddJsonFile("host.json")
+                                             .Build();
+            var url = configuration["urls"];
 
-        //    return WebHost.CreateDefaultBuilder(args)
-        //           .UseUrls(url)
-        //           .UseStartup<Startup>();
+            return WebHost.CreateDefaultBuilder(args)
+                   .UseUrls(url)
+                   .UseStartup<Startup>();
 
-        //}
+        }
     }
 }
