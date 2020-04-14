@@ -29,5 +29,7 @@ namespace Notes.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+
     }
 }

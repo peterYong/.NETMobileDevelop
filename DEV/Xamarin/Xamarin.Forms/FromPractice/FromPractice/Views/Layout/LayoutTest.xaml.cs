@@ -21,5 +21,10 @@ namespace FromPractice.Views.Layout
         {
             await Navigation.PushAsync(new AbsoluteLayoutTestPage());
         }
+
+        private async void Btn_StackLayoutTestPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StackLayoutTestPage());
+        }
     }
 }
