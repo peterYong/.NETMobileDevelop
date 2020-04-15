@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidDevice.Android", "An
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidDevice.iOS", "AndroidDevice\AndroidDevice.iOS\AndroidDevice.iOS.csproj", "{E35E3396-2961-4F44-B142-7C2D5D82704D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidDevice", "AndroidDevice\AndroidDevice\AndroidDevice.csproj", "{84EE5A7E-6626-4C1F-9632-40C2B2EDE258}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndroidDevice", "AndroidDevice\AndroidDevice\AndroidDevice.csproj", "{84EE5A7E-6626-4C1F-9632-40C2B2EDE258}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -351,6 +351,7 @@ Global
 		{E35E3396-2961-4F44-B142-7C2D5D82704D}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{E35E3396-2961-4F44-B142-7C2D5D82704D}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{E35E3396-2961-4F44-B142-7C2D5D82704D}.Debug|iPhone.Build.0 = Debug|iPhone
+		{E35E3396-2961-4F44-B142-7C2D5D82704D}.Debug|iPhone.Deploy.0 = Debug|iPhone
 		{E35E3396-2961-4F44-B142-7C2D5D82704D}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{E35E3396-2961-4F44-B142-7C2D5D82704D}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{E35E3396-2961-4F44-B142-7C2D5D82704D}.Debug|x64.ActiveCfg = Debug|iPhone

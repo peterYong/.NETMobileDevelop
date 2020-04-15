@@ -67,8 +67,9 @@ namespace FromPractice.Views
                     case (int)MenuItemType.Layout:
                         MenuPages.Add(id, new NavigationPage(new LayoutTest()));
                         break;
-
-
+                    case (int)MenuItemType.UserInterface:
+                        MenuPages.Add(id, new NavigationPage(new UserInterfaceTest()));
+                        break;
                 }
             }
 

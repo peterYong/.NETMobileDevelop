@@ -23,7 +23,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>FormPractice</string>
 	<key>CFBundleIdentifier</key>
-	<string>huy.com.FormPractice</string>
+	<string>com.huy.First</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
