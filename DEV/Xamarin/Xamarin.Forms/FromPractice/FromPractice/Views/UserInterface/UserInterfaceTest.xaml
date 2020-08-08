@@ -15,6 +15,10 @@
             <Button Text="WebViewTestStringPage"  
                     x:Name="Btn_WebViewTestStringPage"
                     Clicked="Btn_WebViewTestStringPage_Clicked"/>
+
+            <Button Text="PickerTest"  
+                    x:Name="Btn_PickerTest"
+                    Clicked="Btn_PickerTest_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

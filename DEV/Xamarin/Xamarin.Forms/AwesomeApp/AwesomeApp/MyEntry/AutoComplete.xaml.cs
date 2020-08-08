@@ -13,6 +13,12 @@ namespace AwesomeApp.MyEntry
     public partial class AutoComplete : ContentView
     {
         public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(AutoComplete), default(string), BindingMode.TwoWay, null, propertyChanged: OnTextChanged);
+
+        private static void OnTextChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            throw new NotImplementedException();
+        }
+
         public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(AutoComplete), default(string), BindingMode.TwoWay, null, propertyChanged: OnPlaceholderChanged);
         public string Text
         {
@@ -44,6 +50,11 @@ namespace AwesomeApp.MyEntry
         public AutoComplete()
         {
             InitializeComponent();
+        }
+
+        private void editor_KeyDown()
+        {
+
         }
     }
 }

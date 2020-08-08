@@ -23,6 +23,7 @@ namespace Notes
         {
             var note = (NoteData)BindingContext;
             note.Date = DateTime.UtcNow;
+
             await App.Database.UpdateNoteAsync(note);
             await Navigation.PopAsync(); //回到上一页
         }

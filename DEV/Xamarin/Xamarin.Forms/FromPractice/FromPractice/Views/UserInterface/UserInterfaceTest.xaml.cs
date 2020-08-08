@@ -26,5 +26,10 @@ namespace FromPractice.Views.UserInterface
         {
             Navigation.PushAsync(new WebViewTestStringPage());
         }
+
+        private void Btn_PickerTest_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PickerTest());
+        }
     }
 }

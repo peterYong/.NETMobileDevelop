@@ -11,6 +11,7 @@ using FromPractice.Views.UserInterface;
 using FromPractice.Views.Image;
 using FromPractice.Views.Navigation;
 using FromPractice.Views.Layout;
+using FromPractice.Views.Email;
 
 namespace FromPractice.Views
 {
@@ -69,6 +70,9 @@ namespace FromPractice.Views
                         break;
                     case (int)MenuItemType.UserInterface:
                         MenuPages.Add(id, new NavigationPage(new UserInterfaceTest()));
+                        break;
+                    case (int)MenuItemType.Email:
+                        MenuPages.Add(id, new NavigationPage(new EmailTestPage()));
                         break;
                 }
             }

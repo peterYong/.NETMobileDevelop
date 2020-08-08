@@ -4,18 +4,24 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FromPractice.Views.UserInterface.WebViewTestStringPage">
+             x:Class="FromPractice.Views.UserInterface.WebViewTestStringPage"
+             xmlns:ctrl="clr-namespace:FromPractice.Renderers">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout x:Name="stack" x:FieldModifier="Public">
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <WebView WidthRequest="200" HeightRequest="400">
+            <WebView WidthRequest="200" HeightRequest="400" IsEnabled="True">
                 <WebView.Source>
                     <HtmlWebViewSource x:Name="htmlWebString" x:FieldModifier="Public"/>
                 </WebView.Source>
             </WebView>
+
+            <Button Text="获取html" Clicked="Button_Clicked"/>
+            <!--<Editor x:Name="editor" x:FieldModifier="Public" WidthRequest="200" HeightRequest="100" >
+            </Editor>-->
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

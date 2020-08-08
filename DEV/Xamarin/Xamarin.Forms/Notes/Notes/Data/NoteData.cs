@@ -14,5 +14,7 @@ namespace Notes.Data
         public int ID { get; set; }
         public string Text { get; set; }
         public DateTime Date { get; set; }
+
+        //public List<string> Hashs { get; set; }  //Sqlite类型不能是集合
     }
 }

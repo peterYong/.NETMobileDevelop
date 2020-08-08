@@ -20,7 +20,8 @@ namespace Notes.Data
 
         public Task<List<NoteData>> GetNotesAsync()
         {
-            return connection.Table<NoteData>().ToListAsync();
+            var data= connection.Table<NoteData>().ToListAsync();
+            return data;
         }
         public Task<NoteData> GetNoteAsyncById(int id)
         {

@@ -29,7 +29,8 @@ namespace FromPractice.Views
                  new HomeMenuItem{Id=MenuItemType.Image,Title="ImageTest"},
                  new HomeMenuItem{Id=MenuItemType.Navigation,Title="NavigationTest"},
                   new HomeMenuItem{Id=MenuItemType.Layout,Title="LayoutTest"},
-                  new HomeMenuItem{Id=MenuItemType.UserInterface,Title="UserInterfaceTest"}
+                  new HomeMenuItem{Id=MenuItemType.UserInterface,Title="UserInterfaceTest"},
+                   new HomeMenuItem{Id=MenuItemType.Email,Title="EmailTest"}
             };
 
             ListViewMenu.ItemsSource = menuItems;

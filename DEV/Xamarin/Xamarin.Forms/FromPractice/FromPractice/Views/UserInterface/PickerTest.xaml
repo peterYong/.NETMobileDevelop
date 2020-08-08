@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FromPractice.Views.UserInterface.PickerTest">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="Picker" HorizontalOptions="Center"/>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="15"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="请选择邮箱" HorizontalOptions="StartAndExpand" VerticalOptions="Center" BackgroundColor="Red"/>
+                <Picker Grid.Column="1" x:Name="picker" x:FieldModifier="public" 
+                     SelectedIndexChanged="Picker_SelectedIndexChanged"/>
+                <Image Grid.Column="2" Source="" />
+            </Grid>
+           
+            <BoxView x:Name="boxView" x:FieldModifier="Public" WidthRequest="150" HeightRequest="150" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

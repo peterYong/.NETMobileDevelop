@@ -15,6 +15,7 @@ namespace FromPractice.Models
         Navigation,
         Layout,
         UserInterface,
+        Email,
     }
     public class HomeMenuItem
     {
