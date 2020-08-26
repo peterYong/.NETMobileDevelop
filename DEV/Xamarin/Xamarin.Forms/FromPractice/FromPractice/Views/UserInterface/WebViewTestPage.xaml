@@ -6,12 +6,13 @@
              mc:Ignorable="d"
              x:Class="FromPractice.Views.UserInterface.WebViewTestPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+        <StackLayout WidthRequest="200" HeightRequest="400">
+            <Label Text="Welcome to Xamarin!" HeightRequest="50" BackgroundColor="Blue"
+                VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <WebView Source="http://baidu.com" WidthRequest="200" HeightRequest="400"/>
-           
+            <!--<WebView Source="https://www.cnblogs.com//liqingwen/p/6218994.html" WidthRequest="200" HeightRequest="400"  IsEnabled="True" BackgroundColor="Green"/>-->
+            <!--注意url不要有两个斜杠，在ios 中会报错-->
+            <WebView Source="https://www.cnblogs.com//liqingwen/p/6218994.html" WidthRequest="200" HeightRequest="400"  IsEnabled="True" BackgroundColor="Green"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
